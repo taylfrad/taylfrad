@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#050908" />
+      <stop offset="50%" style="stop-color:#0d1f17" />
+      <stop offset="100%" style="stop-color:#050908" />
+    </linearGradient>
+    <linearGradient id="coral" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#F97066" />
+      <stop offset="50%" style="stop-color:#FF9F8A" />
+      <stop offset="100%" style="stop-color:#F97066" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter id="softglow">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    @keyframes float1 { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-12px); } }
+    @keyframes float2 { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-8px); } }
+    @keyframes float3 { 0%,100% { transform: translateY(-5px); } 50% { transform: translateY(7px); } }
+    @keyframes pulse { 0%,100% { opacity: 0.3; } 50% { opacity: 1; } }
+    @keyframes pulse2 { 0%,100% { opacity: 0.15; } 50% { opacity: 0.7; } }
+    @keyframes dash { to { stroke-dashoffset: -1000; } }
+    @keyframes shimmer { 0% { opacity: 0; } 20% { opacity: 1; } 80% { opacity: 1; } 100% { opacity: 0; } }
+    @keyframes orbit { 0% { transform: rotate(0deg) translateX(30px) rotate(0deg); } 100% { transform: rotate(360deg) translateX(30px) rotate(-360deg); } }
+    @keyframes blink { 0%,49% { opacity: 1; } 50%,100% { opacity: 0; } }
+    @keyframes scanline { 0% { transform: translateX(-200px); } 100% { transform: translateX(1000px); } }
+    @keyframes fadein { 0% { opacity: 0; transform: translateY(10px); } 100% { opacity: 1; transform: translateY(0); } }
+
+    .float1 { animation: float1 4s ease-in-out infinite; }
+    .float2 { animation: float2 3.5s ease-in-out infinite 0.5s; }
+    .float3 { animation: float3 5s ease-in-out infinite 1s; }
+    .pulse { animation: pulse 3s ease-in-out infinite; }
+    .pulse-slow { animation: pulse2 5s ease-in-out infinite; }
+    .dash { animation: dash 20s linear infinite; }
+    .orbit { animation: orbit 8s linear infinite; transform-origin: center; }
+    .blink { animation: blink 1s step-end infinite; }
+    .scanline { animation: scanline 4s linear infinite; }
+  </style>
+
+  <!-- Background -->
+  <rect width="800" height="200" fill="url(#bg)" rx="12" />
+
+  <!-- Animated grid lines -->
+  <g opacity="0.06">
+    <line x1="0" y1="50" x2="800" y2="50" stroke="#F97066" stroke-width="0.5" />
+    <line x1="0" y1="100" x2="800" y2="100" stroke="#F97066" stroke-width="0.5" />
+    <line x1="0" y1="150" x2="800" y2="150" stroke="#F97066" stroke-width="0.5" />
+    <line x1="200" y1="0" x2="200" y2="200" stroke="#F97066" stroke-width="0.5" />
+    <line x1="400" y1="0" x2="400" y2="200" stroke="#F97066" stroke-width="0.5" />
+    <line x1="600" y1="0" x2="600" y2="200" stroke="#F97066" stroke-width="0.5" />
+  </g>
+
+  <!-- Scanning line effect -->
+  <rect class="scanline" x="-200" y="0" width="200" height="200" fill="url(#coral)" opacity="0.02" rx="12" />
+
+  <!-- Floating particles -->
+  <circle class="float1 pulse" cx="80" cy="40" r="2" fill="#F97066" filter="url(#glow)" />
+  <circle class="float2 pulse" cx="720" cy="55" r="1.5" fill="#F97066" filter="url(#glow)" />
+  <circle class="float3 pulse" cx="150" cy="160" r="1.8" fill="#F97066" filter="url(#glow)" />
+  <circle class="float1 pulse" cx="650" cy="150" r="2.2" fill="#F97066" filter="url(#glow)" />
+  <circle class="float2 pulse" cx="350" cy="30" r="1.2" fill="#FF9F8A" filter="url(#glow)" />
+  <circle class="float3 pulse" cx="500" cy="170" r="1.5" fill="#FF9F8A" filter="url(#glow)" />
+  <circle class="float1 pulse-slow" cx="50" cy="100" r="2.5" fill="#F97066" opacity="0.4" filter="url(#softglow)" />
+  <circle class="float2 pulse-slow" cx="750" cy="100" r="2.5" fill="#F97066" opacity="0.4" filter="url(#softglow)" />
+
+  <!-- Animated dashed orbit paths -->
+  <ellipse cx="130" cy="100" rx="55" ry="55" fill="none" stroke="#F97066" stroke-width="0.4" stroke-dasharray="4 8" opacity="0.15" class="dash" />
+  <ellipse cx="670" cy="100" rx="45" ry="45" fill="none" stroke="#F97066" stroke-width="0.4" stroke-dasharray="4 8" opacity="0.15" class="dash" />
+
+  <!-- Left bracket < /> -->
+  <g class="float2" filter="url(#glow)">
+    <text x="100" y="110" font-family="JetBrains Mono, monospace" font-size="36" fill="url(#coral)" text-anchor="middle" opacity="0.7">&lt;</text>
+  </g>
+
+  <!-- Right bracket /> -->
+  <g class="float1" filter="url(#glow)">
+    <text x="700" y="110" font-family="JetBrains Mono, monospace" font-size="36" fill="url(#coral)" text-anchor="middle" opacity="0.7">/&gt;</text>
+  </g>
+
+  <!-- Center content -->
+  <text x="400" y="85" font-family="Manrope, sans-serif" font-size="28" font-weight="700" fill="white" text-anchor="middle" letter-spacing="1">
+    Taylor Fradella
+  </text>
+
+  <!-- Coral underline with glow -->
+  <line x1="300" y1="95" x2="500" y2="95" stroke="url(#coral)" stroke-width="2" opacity="0.6" filter="url(#glow)" />
+
+  <!-- Subtitle -->
+  <text x="400" y="125" font-family="JetBrains Mono, monospace" font-size="13" fill="#D1D5DB" text-anchor="middle" letter-spacing="2">
+    const passion = "design" + "engineering"
+  </text>
+
+  <!-- Blinking cursor -->
+  <rect class="blink" x="548" y="113" width="8" height="15" fill="#F97066" opacity="0.8" />
+
+  <!-- Bottom code snippet -->
+  <text x="400" y="160" font-family="JetBrains Mono, monospace" font-size="10" fill="#6B7280" text-anchor="middle" letter-spacing="1">
+    frontend · full-stack · mobile · accessible
+  </text>
+
+  <!-- Corner decorations -->
+  <path d="M 20 30 L 20 15 L 35 15" fill="none" stroke="#F97066" stroke-width="1.5" opacity="0.3" class="pulse" />
+  <path d="M 780 30 L 780 15 L 765 15" fill="none" stroke="#F97066" stroke-width="1.5" opacity="0.3" class="pulse" />
+  <path d="M 20 170 L 20 185 L 35 185" fill="none" stroke="#F97066" stroke-width="1.5" opacity="0.3" class="pulse" />
+  <path d="M 780 170 L 780 185 L 765 185" fill="none" stroke="#F97066" stroke-width="1.5" opacity="0.3" class="pulse" />
+</svg>
