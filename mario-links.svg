@@ -63,7 +63,7 @@
     .sp{animation:sp 1.5s ease-in-out infinite}.sp1{animation-delay:.5s}.sp2{animation-delay:1s}
     .bm{animation:bm 5s ease-in-out infinite 1s}
   </style>
-  <rect x="0" y="-15" width="700" height="125" fill="#0d1117"/>
+  <rect x="0" y="-15" width="700" height="125" fill="#050c21"/>
   <rect x="0" y="-15" width="700" height="125" fill="url(#ag)"/>
 
   <!-- PIPE 1 — Portfolio -->
