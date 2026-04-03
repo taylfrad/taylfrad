@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 50" width="800" height="50">
+  <style>
+    @keyframes run { 0% { transform: translateX(-120px); } 100% { transform: translateX(820px); } }
+    @keyframes run2 { 0% { transform: translateX(-160px); } 100% { transform: translateX(780px); } }
+    @keyframes legs { 0%,49% { transform: scaleY(1); } 50%,100% { transform: scaleY(0.7); } }
+    @keyframes coin-pop { 0%,100% { opacity:0; transform: translateY(0); } 10%,40% { opacity:1; transform: translateY(-12px); } 50% { opacity:0; transform: translateY(-18px); } }
+    @keyframes cs { 0%,100% { transform: scaleX(1); } 50% { transform: scaleX(0.2); } }
+    .mario { animation: run 8s linear infinite; }
+    .luigi { animation: run2 8s linear infinite 1.2s; }
+    .leg1 { animation: legs 0.3s step-end infinite; transform-origin: center bottom; }
+    .leg2 { animation: legs 0.3s step-end infinite 0.15s; transform-origin: center bottom; }
+    .cp0{animation:coin-pop 8s ease-out infinite 1.5s}.cp1{animation:coin-pop 8s ease-out infinite 3s}.cp2{animation:coin-pop 8s ease-out infinite 4.5s}.cp3{animation:coin-pop 8s ease-out infinite 6s}.cp4{animation:coin-pop 8s ease-out infinite 7.5s}
+    .csp{animation:cs 1s ease-in-out infinite}
+  </style>
+
+  <rect width="800" height="50" fill="#0d1117"/>
+
+  <!-- Coin trail -->
+  <g class="cp0"><g class="csp" transform-origin="150 20"><ellipse cx="150" cy="20" rx="5" ry="5" fill="#E8C547" stroke="#C4722A" stroke-width="0.8"/><text x="150" y="23" font-size="6" fill="#C4722A" text-anchor="middle" font-family="monospace">$</text></g></g>
+  <g class="cp1"><g class="csp" transform-origin="320 18" style="animation-delay:.3s"><ellipse cx="320" cy="18" rx="5" ry="5" fill="#E8C547" stroke="#C4722A" stroke-width="0.8"/><text x="320" y="21" font-size="6" fill="#C4722A" text-anchor="middle" font-family="monospace">$</text></g></g>
+  <g class="cp2"><g class="csp" transform-origin="490 22" style="animation-delay:.6s"><ellipse cx="490" cy="22" rx="5" ry="5" fill="#E8C547" stroke="#C4722A" stroke-width="0.8"/><text x="490" y="25" font-size="6" fill="#C4722A" text-anchor="middle" font-family="monospace">$</text></g></g>
+  <g class="cp3"><g class="csp" transform-origin="640 19" style="animation-delay:.9s"><ellipse cx="640" cy="19" rx="5" ry="5" fill="#E8C547" stroke="#C4722A" stroke-width="0.8"/><text x="640" y="22" font-size="6" fill="#C4722A" text-anchor="middle" font-family="monospace">$</text></g></g>
+
+  <!-- Ground line -->
+  <line x1="0" y1="44" x2="800" y2="44" stroke="#8B4513" stroke-width="2" opacity="0.5"/>
+
+  <!-- MARIO -->
+  <g class="mario">
+    <!-- Hat -->
+    <rect x="4" y="20" width="12" height="4" fill="#E84030" rx="1"/>
+    <!-- Head/face -->
+    <rect x="2" y="24" width="16" height="6" fill="#FFA54F" rx="1"/>
+    <!-- Eyes -->
+    <rect x="12" y="25" width="2" height="2" fill="#0d1117"/>
+    <!-- Body/overalls -->
+    <rect x="4" y="30" width="12" height="6" fill="#0058F8"/>
+    <!-- Arms -->
+    <rect x="0" y="31" width="4" height="4" fill="#FFA54F" rx="1"/>
+    <rect x="16" y="31" width="4" height="4" fill="#FFA54F" rx="1"/>
+    <!-- Legs -->
+    <g class="leg1"><rect x="4" y="36" width="4" height="6" fill="#0058F8"/><rect x="4" y="40" width="5" height="4" fill="#8B4513" rx="1"/></g>
+    <g class="leg2"><rect x="12" y="36" width="4" height="6" fill="#0058F8"/><rect x="11" y="40" width="5" height="4" fill="#8B4513" rx="1"/></g>
+  </g>
+
+  <!-- LUIGI -->
+  <g class="luigi">
+    <!-- Hat -->
+    <rect x="4" y="18" width="12" height="4" fill="#2DD4A8" rx="1"/>
+    <!-- Head/face -->
+    <rect x="2" y="22" width="16" height="6" fill="#FFA54F" rx="1"/>
+    <!-- Eyes -->
+    <rect x="12" y="23" width="2" height="2" fill="#0d1117"/>
+    <!-- Body/overalls -->
+    <rect x="4" y="28" width="12" height="8" fill="#0058F8"/>
+    <!-- Arms -->
+    <rect x="0" y="30" width="4" height="4" fill="#FFA54F" rx="1"/>
+    <rect x="16" y="30" width="4" height="4" fill="#FFA54F" rx="1"/>
+    <!-- Legs (Luigi is taller) -->
+    <g class="leg2"><rect x="4" y="36" width="4" height="6" fill="#0058F8"/><rect x="4" y="40" width="5" height="4" fill="#8B4513" rx="1"/></g>
+    <g class="leg1"><rect x="12" y="36" width="4" height="6" fill="#0058F8"/><rect x="11" y="40" width="5" height="4" fill="#8B4513" rx="1"/></g>
+  </g>
+</svg>
