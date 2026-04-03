@@ -1,17 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 140" width="800" height="140">
   <defs>
-    <!-- COIN -->
-    <symbol id="coin" viewBox="0 0 12 14">
-      <rect x="4" y="0" width="4" height="2" fill="#000"/>
-      <rect x="2" y="2" width="2" height="2" fill="#000"/><rect x="8" y="2" width="2" height="2" fill="#000"/>
-      <rect x="0" y="4" width="2" height="6" fill="#000"/><rect x="10" y="4" width="2" height="6" fill="#000"/>
-      <rect x="2" y="10" width="2" height="2" fill="#000"/><rect x="8" y="10" width="2" height="2" fill="#000"/>
-      <rect x="4" y="12" width="4" height="2" fill="#000"/>
-      <rect x="4" y="2" width="4" height="10" fill="#E8A800"/>
-      <rect x="2" y="4" width="8" height="6" fill="#E8A800"/>
-      <rect x="2" y="4" width="2" height="6" fill="#fff"/>
-      <rect x="4" y="2" width="2" height="2" fill="#fff"/>
-      <rect x="4" y="4" width="2" height="6" fill="#F8D830"/>
+    <!-- COIN — SMW sprite (PNG) -->
+    <symbol id="coin" viewBox="0 0 84 96">
+      <image width="84" height="96" style="image-rendering:pixelated" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFQAAABgCAYAAACDgFV6AAABGElEQVR42u3d0QkCMRAFwI0IWpXWrlXp11rBCYFbk5zzChAcsjwW72KL+mTMlVb54acQoECBCtCFG2+X1s7cp/xba1MZOaFGHihQAbpEy2dpaz+vY77w/a3ljTxQAQpUy2dXm/e29u1Vusvn4zKk/Z1QIw8UqACdJufpfjcftOM7oUCBClCgh2z5KN3ZF8nW7v9lx08n1MgDBYoAKFCgAhQoUAEKFKgABQoUqAAFClSAAgUqQIECFaBAgQIVoECBClCg8RfP2G++h37QZ++9L2/kgQpQoIds+Tbi/vkf3EzrhAIVoECBhrvvSm+4nWzHd8OtkQcqQIFq+fJ/q+m8gXbH1tbyRh6oAAWq5cM/zzqhRh6oAAW6cD6s+y9Y202aVAAAAABJRU5ErkJggg==" />
     </symbol>
 
     <!-- TECH BLOCK BASE — golden block without ? -->
@@ -25,22 +16,9 @@
       <circle cx="5" cy="27" r="2" fill="#A08000"/><circle cx="27" cy="27" r="2" fill="#A08000"/>
     </symbol>
 
-    <!-- GOOMBA -->
-    <symbol id="goomba" viewBox="0 0 14 16">
-      <rect x="4" y="0" width="6" height="2" fill="#A07050"/>
-      <rect x="2" y="2" width="10" height="2" fill="#B08060"/>
-      <rect x="1" y="4" width="12" height="2" fill="#A07050"/>
-      <rect x="1" y="4" width="2" height="1" fill="#000"/><rect x="2" y="5" width="2" height="1" fill="#000"/><rect x="3" y="4" width="1" height="1" fill="#000"/>
-      <rect x="11" y="4" width="2" height="1" fill="#000"/><rect x="9" y="5" width="2" height="1" fill="#000"/><rect x="10" y="4" width="1" height="1" fill="#000"/>
-      <rect x="2" y="6" width="3" height="2" fill="#fff"/><rect x="9" y="6" width="3" height="2" fill="#fff"/>
-      <rect x="4" y="6" width="1" height="2" fill="#000"/><rect x="9" y="6" width="1" height="2" fill="#000"/>
-      <rect x="1" y="8" width="12" height="3" fill="#F0D0B0"/>
-      <rect x="1" y="8" width="1" height="3" fill="#A07050"/><rect x="12" y="8" width="1" height="3" fill="#A07050"/>
-      <rect x="4" y="8" width="2" height="2" fill="#fff"/><rect x="8" y="8" width="2" height="2" fill="#fff"/>
-      <rect x="6" y="9" width="2" height="1" fill="#604020"/>
-      <rect x="3" y="11" width="8" height="2" fill="#604020"/>
-      <rect x="0" y="13" width="4" height="3" fill="#000"/><rect x="1" y="13" width="3" height="2" fill="#604020"/>
-      <rect x="10" y="13" width="4" height="3" fill="#000"/><rect x="10" y="13" width="3" height="2" fill="#604020"/>
+    <!-- GOOMBA — SMW sprite (PNG) -->
+    <symbol id="goomba" viewBox="0 0 64 64">
+      <image width="64" height="64" style="image-rendering:pixelated" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABWklEQVR42u2aOwrCQBCGd8VbeAvBA9j4gBQS0MbOEwhWegCtBE9glyaCWAg+Gg8geAtvIcQ6W2RddscE8k1t1snH/v/MTlb355GSjPb7k/k8/2o1tWR+DVXzAEDdATSrpnnbeqE9AQkAAA+olub/7QlIAAB4QLU1L+0JSAAAeICbxjaHa+Hvl+OBaMI//L+TJyABANQ8tDkTdK3z6/SSX1DroJ5gaj7L8umtJkPlM2NEAgCgD1Cl1m12AAAAUK4HSJ/vXeu2ra8IPT9AAgCgD5DVfNXWYwcAAAD5MmvO0NgBAABAvfoAc0bmezbojiaiCT9OqQp57xAJAIDvAn53hReduNQ+Yvs8ckcIAAAQnAfcdudCjS+SuNQXsOXXn0fcDwAAABz6AJumXOOe7L2e701nQV/Y9AQkAAD6ANkwNWzzhNCaZwcAAABuHmDWydB9wb+DswASAEBhfAHRa3BL/NFoRAAAAABJRU5ErkJggg==" />
     </symbol>
   </defs>
   <style>
@@ -62,25 +40,23 @@
     }
     @keyframes mario-run-show{0%,27%{opacity:1}28%,34%{opacity:0}35%,52%{opacity:1}53%,59%{opacity:0}60%,76%{opacity:1}77%,83%{opacity:0}84%,100%{opacity:1}}
     @keyframes mario-jump-show{0%,27%{opacity:0}28%,34%{opacity:1}35%,52%{opacity:0}53%,59%{opacity:1}60%,76%{opacity:0}77%,83%{opacity:1}84%,100%{opacity:0}}
-    @keyframes legA{0%,40%{opacity:1}41%,80%{opacity:0}81%,100%{opacity:1}}
-    @keyframes legB{0%,40%{opacity:0}41%,80%{opacity:1}81%,100%{opacity:0}}
-    @keyframes goomba-walk{0%,100%{transform:translateX(0)}50%{transform:translateX(-20px)}}
+    @keyframes run-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+    @keyframes goomba-walk{0%,100%{transform:translateX(0)}25%{transform:translateX(-10px)}50%{transform:translateX(-20px)}75%{transform:translateX(-10px)}}
 
     .mw{animation:mario-run 10s linear infinite}
-    .lw{animation:mario-run 10s linear infinite 2s}
+    .lw{animation:mario-run 10s linear 2s infinite backwards}
     .mj{animation:mario-jump 10s linear infinite}
-    .lj{animation:mario-jump 10s linear infinite 2s}
-    .mrs{animation:mario-run-show 10s step-end infinite}
+    .lj{animation:mario-jump 10s linear 2s infinite backwards}
+    .mrs{animation:mario-run-show 10s step-end infinite,run-bob .18s ease-in-out infinite}
     .mjs{animation:mario-jump-show 10s step-end infinite}
-    .lrs{animation:mario-run-show 10s step-end infinite 2s}
-    .ljs{animation:mario-jump-show 10s step-end infinite 2s}
-    .la{animation:legA .15s step-end infinite}
-    .lb{animation:legB .15s step-end infinite}
+    .lrs{animation:mario-run-show 10s step-end 2s infinite backwards,run-bob .18s ease-in-out infinite}
+    .ljs{animation:mario-jump-show 10s step-end 2s infinite backwards}
     .gw{animation:goomba-walk 3s ease-in-out infinite}
   </style>
   <rect width="800" height="140" fill="#050c21"/>
 
   <!-- ============ TECH BLOCKS WITH REAL LOGOS ============ -->
+  <g transform="translate(43,0)">
   <!-- Positions: 82, 192, 302, 412, 522, 632 (110px spacing) -->
 
   <!-- React -->
@@ -143,6 +119,7 @@
       <path fill="#336791" d="M115.731 77.44c-13.925 2.873-14.882-1.842-14.882-1.842 14.703-21.816 20.849-49.51 15.545-56.287C101.924.823 76.875 9.566 76.457 9.793l-.135.024c-2.751-.571-5.83-.911-9.291-.967-6.301-.103-11.08 1.652-14.707 4.402 0 0-44.684-18.408-42.606 23.151.442 8.842 12.672 66.899 27.26 49.363 5.332-6.412 10.483-11.834 10.483-11.834 2.559 1.699 5.622 2.567 8.833 2.255l.25-.212c-.078.796-.042 1.575.1 2.497-3.758 4.199-2.654 4.936-10.167 6.482-7.602 1.566-3.136 4.355-.22 5.084 3.534.884 11.712 2.136 17.237-5.598l-.221.882c1.473 1.18 2.507 7.672 2.334 13.557-.174 5.885-.29 9.926.871 13.082 1.16 3.156 2.316 10.256 12.192 8.14 8.252-1.768 12.528-6.351 13.124-13.995.422-5.435 1.377-4.631 1.438-9.49l.767-2.3c.884-7.367.14-9.743 5.225-8.638l1.235.108c3.742.17 8.639-.602 11.514-1.938 6.19-2.871 9.861-7.667 3.758-6.408z"/>
     </svg>
   </g>
+  </g><!-- end tech blocks centering -->
 
   <!-- ============ MARIO RUN SCENE ============ -->
 
@@ -175,91 +152,23 @@
   <g class="gw" style="animation-delay:1s"><use href="#goomba" x="430" y="90" width="22" height="28"/></g>
   <g class="gw" style="animation-delay:2s"><use href="#goomba" x="640" y="90" width="22" height="28"/></g>
 
-  <!-- MARIO -->
+  <!-- MARIO — SMW style -->
   <g class="mw"><g class="mj">
     <g class="mrs">
-      <rect x="5" y="86" width="14" height="4" fill="#E02020" rx="1"/>
-      <rect x="3" y="90" width="18" height="3" fill="#E02020"/>
-      <rect x="3" y="93" width="4" height="3" fill="#804020"/>
-      <rect x="7" y="93" width="10" height="2" fill="#E8A030"/>
-      <rect x="17" y="93" width="3" height="2" fill="#E8A030"/>
-      <rect x="14" y="93" width="2" height="2" fill="#000"/>
-      <rect x="3" y="95" width="3" height="2" fill="#E8A030"/>
-      <rect x="6" y="95" width="8" height="2" fill="#E8A030"/>
-      <rect x="14" y="95" width="6" height="2" fill="#000"/>
-      <rect x="18" y="95" width="3" height="2" fill="#E8A030"/>
-      <rect x="3" y="98" width="16" height="4" fill="#E02020"/>
-      <rect x="0" y="99" width="3" height="4" fill="#E8A030"/>
-      <rect x="19" y="99" width="3" height="4" fill="#E8A030"/>
-      <rect x="4" y="102" width="14" height="4" fill="#0058F8"/>
-      <rect x="7" y="102" width="2" height="2" fill="#E8C800"/>
-      <rect x="13" y="102" width="2" height="2" fill="#E8C800"/>
-      <g class="la"><rect x="2" y="106" width="6" height="6" fill="#0058F8"/><rect x="14" y="106" width="6" height="4" fill="#0058F8"/><rect x="0" y="112" width="7" height="4" fill="#804020" rx="1"/><rect x="15" y="110" width="6" height="4" fill="#804020" rx="1"/></g>
-      <g class="lb"><rect x="4" y="106" width="6" height="4" fill="#0058F8"/><rect x="12" y="106" width="6" height="6" fill="#0058F8"/><rect x="3" y="110" width="6" height="4" fill="#804020" rx="1"/><rect x="13" y="112" width="7" height="4" fill="#804020" rx="1"/></g>
+      <image x="1" y="83" width="20" height="35" style="image-rendering:pixelated" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAABgCAYAAACwu0pzAAAFkUlEQVR42u1aW0xcRRj+5pyF5VaWxTbBeAkUSdoUYhOtmqi9YMXGh0Yk0dr4UHzxrd6qMWmslYAPpkmND6amSamaRrRpjZpWJbhSn0wlMaRoglgKNbW1VGDB7oXdM78PlDln1j2nZ2+wLjMJYWbnnLn88/3f+f9/foYcl6MAZTrGLoC5eU5DARW1mWSFhodp4b+1Hi8ugd3fbA3En9Nz1vGc1sByrRf1LU/Z9HDcd2JWtM62+WzHP9/7mSv9UTDL1+LJBrTsoQRQ76iQ2p9HryT0rpvHOgEbetrEr4Fbu1ARLU6QOc+fk3FaCrFM3i5QmLlms0Mej8RYTVueEPVY3xg4k6Wn0bycHqcB8VuYOcxued2bIGXryBFLXdd1GIbBUtaZknhcPnimWRZuLj6xhCQ8JeIr+VwRxWbLSWec6HeBcgFgIwbUyajNuIXZ4aZGKjo3JIimHvfafuQ20UCenwzn2TWnl3IzmqYpnckE4yxXVjPnHHqGA17q7kIVouaCn35d1KNRy+8EFH1xULTL2zuc9pXUVkg0ZwoXZpxzZG7QZ9tBSBNmbV0vwTv1h7nTDZtFvbSx2fbQr3fvs7SitpP5/X5JX0JDAUtvJzlYJkkhaBjGMrEA3MMsT2MAdPV3QnAGYMDFsycxGzX99Jo0BoyWVYJ0U0alWVpo6Mp5KqupZ6GLZygYDMLn82FqJozbGreZzlno1EfihVN9hzER+ku0X3toZ8qTrljTiLhefDP/K6USHgoQro0jPBSgd17YZHq4niplNWc9jkiLHTfjP/W7mJ2jvL1DtK4OfocVVhmM/mhD4fL4YYmm09trgcEsIaoyH2nBEocFs+CcTZz8gMqClxyArgnnrKJ9v5BHeKhPGtAqC6vl8FarFUcMr25/w4VyycI+8NV+ic06j08nj5vpNzM0FwJ9zF7Cbg+VuX6QL08LoKBcAAkwDQ0NNDIykvTBRFq1K7e3d2BKGZoKZildadhyjh3svPc8iJhWlLRPcvCycRKaBs45y5kFQESLdxKMqQva/xojmgFG89aAxnWLt8elyKgEwTTnMqS6BrIxhVi6VrvVNNmzfV9OJX7gS9Mqf/NzldRQwLfNcLhVW21z9QEAow63auOt7uZygpaCWUFR88HqKgJpICIwxrBm/cM38gGAIl4inhvuPw2GmGjf6Vkn5HbukRFLHgHwyqGfRd1W2gQY3mZa+Ax09FxmGW/GPzkttWNFXgv3m6wd0aPwGHPmBHEzDDhdFpHuEmPFNa6+MXr0srptzjEH5klSg5V+iQHao6tdTRAoN1MSdx/J3G177zm/bUBDwaygrGZGcu4Ma1mtTkZtJhub0dJOFs0TambNPYKauwM7pD47S7l0y12IFPGkeWnftw5IUtjdPZkyHSvnLP2z5ksmNdcwk1/iOBLYCeWcKWrOsgVAFV5L1JJj0N8EjeYdqztm/rGnaEtu92jdWiFDxhhmqotvEJusZ9fmSsGFnDWMTP1AwWAcPp8HDX6WuXOGB9ZLzXev7xX1uxNo265U9/8iO3w2z73/8W+Y00zhfdL2qbIAlmesmbbeL+q7tl4Q9c5na1GxiDcBCmYohPDs2IRBtat0hm3HSUQEGICNyb/6JSwMzXLJ//Yza22nfvn5D7GQS1Cy2YRt6MyvZvSBgAvHnkTdSp2N/c2p9hYtfWquXaUzAGBzhiuzP0KlrjMbaM4MHoZ4mdkRIzDLHU/dyvk1OG1E6UxBUrPb8uKx8UWLJS7ZyeQiDUzdnDk5btkoFNjBlAWg2CztHEvNYQxt6XSmq4WlrDN7e0mauLOFJe1Ld11KZwqOmq25NF0t7obZc6JFSvH1Vn4tmtHZx0S9zPctDJ76OrX/pxwVNbsrg5OVrq42Tn9T6qqP0xLqTL5gUlFzvpZ/ATqO7+sghKwDAAAAAElFTkSuQmCC" />
     </g>
     <g class="mjs">
-      <rect x="5" y="86" width="14" height="4" fill="#E02020" rx="1"/>
-      <rect x="3" y="90" width="18" height="3" fill="#E02020"/>
-      <rect x="3" y="93" width="4" height="3" fill="#804020"/>
-      <rect x="7" y="93" width="10" height="2" fill="#E8A030"/>
-      <rect x="17" y="93" width="3" height="2" fill="#E8A030"/>
-      <rect x="14" y="93" width="2" height="2" fill="#000"/>
-      <rect x="3" y="95" width="3" height="2" fill="#E8A030"/>
-      <rect x="6" y="95" width="8" height="2" fill="#E8A030"/>
-      <rect x="14" y="95" width="6" height="2" fill="#000"/>
-      <rect x="18" y="95" width="3" height="2" fill="#E8A030"/>
-      <rect x="3" y="98" width="16" height="4" fill="#E02020"/>
-      <rect x="19" y="96" width="3" height="3" fill="#E8A030"/>
-      <rect x="0" y="99" width="3" height="4" fill="#E8A030"/>
-      <rect x="4" y="102" width="14" height="3" fill="#0058F8"/>
-      <rect x="7" y="102" width="2" height="2" fill="#E8C800"/>
-      <rect x="13" y="102" width="2" height="2" fill="#E8C800"/>
-      <rect x="4" y="105" width="5" height="4" fill="#0058F8"/><rect x="11" y="105" width="5" height="4" fill="#0058F8"/>
-      <rect x="3" y="109" width="5" height="3" fill="#804020" rx="1"/><rect x="12" y="109" width="5" height="3" fill="#804020" rx="1"/>
+      <image x="1" y="83" width="20" height="35" style="image-rendering:pixelated" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAABgCAYAAACwu0pzAAAFkUlEQVR42u1aW0xcRRj+5pyF5VaWxTbBeAkUSdoUYhOtmqi9YMXGh0Yk0dr4UHzxrd6qMWmslYAPpkmND6amSamaRrRpjZpWJbhSn0wlMaRoglgKNbW1VGDB7oXdM78PlDln1j2nZ2+wLjMJYWbnnLn88/3f+f9/foYcl6MAZTrGLoC5eU5DARW1mWSFhodp4b+1Hi8ugd3fbA3En9Nz1vGc1sByrRf1LU/Z9HDcd2JWtM62+WzHP9/7mSv9UTDL1+LJBrTsoQRQ76iQ2p9HryT0rpvHOgEbetrEr4Fbu1ARLU6QOc+fk3FaCrFM3i5QmLlms0Mej8RYTVueEPVY3xg4k6Wn0bycHqcB8VuYOcxued2bIGXryBFLXdd1GIbBUtaZknhcPnimWRZuLj6xhCQ8JeIr+VwRxWbLSWec6HeBcgFgIwbUyajNuIXZ4aZGKjo3JIimHvfafuQ20UCenwzn2TWnl3IzmqYpnckE4yxXVjPnHHqGA17q7kIVouaCn35d1KNRy+8EFH1xULTL2zuc9pXUVkg0ZwoXZpxzZG7QZ9tBSBNmbV0vwTv1h7nTDZtFvbSx2fbQr3fvs7SitpP5/X5JX0JDAUtvJzlYJkkhaBjGMrEA3MMsT2MAdPV3QnAGYMDFsycxGzX99Jo0BoyWVYJ0U0alWVpo6Mp5KqupZ6GLZygYDMLn82FqJozbGreZzlno1EfihVN9hzER+ku0X3toZ8qTrljTiLhefDP/K6USHgoQro0jPBSgd17YZHq4niplNWc9jkiLHTfjP/W7mJ2jvL1DtK4OfocVVhmM/mhD4fL4YYmm09trgcEsIaoyH2nBEocFs+CcTZz8gMqClxyArgnnrKJ9v5BHeKhPGtAqC6vl8FarFUcMr25/w4VyycI+8NV+ic06j08nj5vpNzM0FwJ9zF7Cbg+VuX6QL08LoKBcAAkwDQ0NNDIykvTBRFq1K7e3d2BKGZoKZildadhyjh3svPc8iJhWlLRPcvCycRKaBs45y5kFQESLdxKMqQva/xojmgFG89aAxnWLt8elyKgEwTTnMqS6BrIxhVi6VrvVNNmzfV9OJX7gS9Mqf/NzldRQwLfNcLhVW21z9QEAow63auOt7uZygpaCWUFR88HqKgJpICIwxrBm/cM38gGAIl4inhvuPw2GmGjf6Vkn5HbukRFLHgHwyqGfRd1W2gQY3mZa+Ax09FxmGW/GPzkttWNFXgv3m6wd0aPwGHPmBHEzDDhdFpHuEmPFNa6+MXr0srptzjEH5klSg5V+iQHao6tdTRAoN1MSdx/J3G177zm/bUBDwaygrGZGcu4Ma1mtTkZtJhub0dJOFs0TambNPYKauwM7pD47S7l0y12IFPGkeWnftw5IUtjdPZkyHSvnLP2z5ksmNdcwk1/iOBLYCeWcKWrOsgVAFV5L1JJj0N8EjeYdqztm/rGnaEtu92jdWiFDxhhmqotvEJusZ9fmSsGFnDWMTP1AwWAcPp8HDX6WuXOGB9ZLzXev7xX1uxNo265U9/8iO3w2z73/8W+Y00zhfdL2qbIAlmesmbbeL+q7tl4Q9c5na1GxiDcBCmYohPDs2IRBtat0hm3HSUQEGICNyb/6JSwMzXLJ//Yza22nfvn5D7GQS1Cy2YRt6MyvZvSBgAvHnkTdSp2N/c2p9hYtfWquXaUzAGBzhiuzP0KlrjMbaM4MHoZ4mdkRIzDLHU/dyvk1OG1E6UxBUrPb8uKx8UWLJS7ZyeQiDUzdnDk5btkoFNjBlAWg2CztHEvNYQxt6XSmq4WlrDN7e0mauLOFJe1Ld11KZwqOmq25NF0t7obZc6JFSvH1Vn4tmtHZx0S9zPctDJ76OrX/pxwVNbsrg5OVrq42Tn9T6qqP0xLqTL5gUlFzvpZ/ATqO7+sghKwDAAAAAElFTkSuQmCC" />
     </g>
   </g></g>
 
-  <!-- LUIGI -->
+  <!-- LUIGI — SMW style (green cap, purple overalls) -->
   <g class="lw"><g class="lj">
     <g class="lrs">
-      <rect x="5" y="82" width="14" height="4" fill="#20A020" rx="1"/>
-      <rect x="3" y="86" width="18" height="3" fill="#20A020"/>
-      <rect x="3" y="89" width="4" height="3" fill="#804020"/>
-      <rect x="7" y="89" width="10" height="2" fill="#F0B070"/>
-      <rect x="17" y="89" width="3" height="2" fill="#F0B070"/>
-      <rect x="14" y="89" width="2" height="2" fill="#000"/>
-      <rect x="3" y="91" width="3" height="2" fill="#F0B070"/>
-      <rect x="6" y="91" width="8" height="2" fill="#F0B070"/>
-      <rect x="14" y="91" width="6" height="2" fill="#000"/>
-      <rect x="18" y="91" width="3" height="2" fill="#F0B070"/>
-      <rect x="3" y="94" width="16" height="4" fill="#20A020"/>
-      <rect x="0" y="95" width="3" height="4" fill="#fff"/>
-      <rect x="19" y="95" width="3" height="4" fill="#fff"/>
-      <rect x="4" y="98" width="14" height="4" fill="#0058F8"/>
-      <rect x="7" y="98" width="2" height="2" fill="#E8C800"/>
-      <rect x="13" y="98" width="2" height="2" fill="#E8C800"/>
-      <g class="la" style="animation-delay:.07s"><rect x="2" y="102" width="6" height="8" fill="#0058F8"/><rect x="14" y="102" width="6" height="6" fill="#0058F8"/><rect x="0" y="110" width="7" height="4" fill="#804020" rx="1"/><rect x="15" y="108" width="6" height="4" fill="#804020" rx="1"/></g>
-      <g class="lb" style="animation-delay:.07s"><rect x="4" y="102" width="6" height="6" fill="#0058F8"/><rect x="12" y="102" width="6" height="8" fill="#0058F8"/><rect x="3" y="108" width="6" height="4" fill="#804020" rx="1"/><rect x="13" y="110" width="7" height="4" fill="#804020" rx="1"/></g>
+      <image x="1" y="83" width="20" height="35" style="image-rendering:pixelated" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAABgCAYAAABfeSFNAAADHElEQVR42u2bPWwTMRTHn0OFLixMKHQAwhIhUCW2BAaE2IFOIROUrROETIEBBBIhU0m7AFvGNCNirjqVsEUgVJEpTPRjYukdSI0Zrme/UF/Ol1za+3hPiuS67tk+/+7//rGvABQUUwk21avfPrcPLJXSbv/x59jjScVlRVKElg5C7XuiaPYtUU5nDfV1iqtjY0ZohS1mAsEJIYRjs7UufygURNGCV6JsdO7TipBqAQDAnQv8EE6dvrrtzfaRjZnQiiZaDk4YKYzTdBDyNX5CK/oJ0UHq+HCihBhxtLBSVfLaFzQbOSkpi1+VbXi3KdtcXVC2MQyDEmKM0NLBSaFWGCe3wKiYnffKesuyxvaBhFZkVMvsdtG3u4rcOACPRIjaThL1Yoar6qvtbVKt6Nl4s5ETy7m88VvUP668lGgVFkcnRKRIwx5tKRAUl5deKDEjtKJp4xEWTvJLl3ueOGEM68WMRPX6aW/kyMbHdfMBK5hn4ITpoWr/Y6YT1fY22fhEHPTwkSrkE7OgxkloxekMcd+5ETqYTeKjKCEm6wzRp0dzw2wSnAiteKrW3fPyeLpcULdpdJTVb05awBkAG9H709ZW+FWLHwyRc/sT/oddd2L8OCYyn7W7bZXUvy+1ZBkhV3u3LspPmn2NjrJies9Wt8hrxVS15uUyC1wKWc8/qz1o+sRJHW8XZF9umBFa8fFa+M0HDcwCeQ54yPPIJBOI1EQ4C0i1zszae1wMTsBO3oSR/gpjttE/2KtgUPvgLyHqKNURP+wMSLWCvl0OWjh283+VnkrHxtcNy7PPahRsPKEVpPzm5m7ZhS9rEjMXhHA8vCjPIX+4tOl9/4xwXhM47/7qkY1PjtcSiAFAbg/VX7lGK0IToYnQREJkTR3fhVXLVdlcFOxT67VS/XrfUJLVSIKEVmIPerB3ohUh1dKMzOwcH8CfQAfjV6kILTj8Skr0Vat8Y2fA/PzT/fDGgtyIKJ1F9UN3hxIivVSD8dCJR8/l+eOpyw1R3tss2wNiA0hfWvE1zpkwbbMzNojW8TRLDcKJVhgeAVItCoqExD8OY+Gz0V+zdQAAAABJRU5ErkJggg==" />
     </g>
     <g class="ljs">
-      <rect x="5" y="82" width="14" height="4" fill="#20A020" rx="1"/>
-      <rect x="3" y="86" width="18" height="3" fill="#20A020"/>
-      <rect x="3" y="89" width="4" height="3" fill="#804020"/>
-      <rect x="7" y="89" width="10" height="2" fill="#F0B070"/>
-      <rect x="17" y="89" width="3" height="2" fill="#F0B070"/>
-      <rect x="14" y="89" width="2" height="2" fill="#000"/>
-      <rect x="3" y="91" width="3" height="2" fill="#F0B070"/>
-      <rect x="6" y="91" width="8" height="2" fill="#F0B070"/>
-      <rect x="14" y="91" width="6" height="2" fill="#000"/>
-      <rect x="18" y="91" width="3" height="2" fill="#F0B070"/>
-      <rect x="3" y="94" width="16" height="4" fill="#20A020"/>
-      <rect x="19" y="92" width="3" height="3" fill="#fff"/>
-      <rect x="0" y="95" width="3" height="4" fill="#fff"/>
-      <rect x="4" y="98" width="14" height="3" fill="#0058F8"/>
-      <rect x="7" y="98" width="2" height="2" fill="#E8C800"/>
-      <rect x="13" y="98" width="2" height="2" fill="#E8C800"/>
-      <rect x="4" y="101" width="5" height="5" fill="#0058F8"/><rect x="11" y="101" width="5" height="5" fill="#0058F8"/>
-      <rect x="3" y="106" width="5" height="3" fill="#804020" rx="1"/><rect x="12" y="106" width="5" height="3" fill="#804020" rx="1"/>
+      <image x="1" y="83" width="20" height="35" style="image-rendering:pixelated" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAABgCAYAAABfeSFNAAADHElEQVR42u2bPWwTMRTHn0OFLixMKHQAwhIhUCW2BAaE2IFOIROUrROETIEBBBIhU0m7AFvGNCNirjqVsEUgVJEpTPRjYukdSI0Zrme/UF/Ol1za+3hPiuS67tk+/+7//rGvABQUUwk21avfPrcPLJXSbv/x59jjScVlRVKElg5C7XuiaPYtUU5nDfV1iqtjY0ZohS1mAsEJIYRjs7UufygURNGCV6JsdO7TipBqAQDAnQv8EE6dvrrtzfaRjZnQiiZaDk4YKYzTdBDyNX5CK/oJ0UHq+HCihBhxtLBSVfLaFzQbOSkpi1+VbXi3KdtcXVC2MQyDEmKM0NLBSaFWGCe3wKiYnffKesuyxvaBhFZkVMvsdtG3u4rcOACPRIjaThL1Yoar6qvtbVKt6Nl4s5ETy7m88VvUP668lGgVFkcnRKRIwx5tKRAUl5deKDEjtKJp4xEWTvJLl3ueOGEM68WMRPX6aW/kyMbHdfMBK5hn4ITpoWr/Y6YT1fY22fhEHPTwkSrkE7OgxkloxekMcd+5ETqYTeKjKCEm6wzRp0dzw2wSnAiteKrW3fPyeLpcULdpdJTVb05awBkAG9H709ZW+FWLHwyRc/sT/oddd2L8OCYyn7W7bZXUvy+1ZBkhV3u3LspPmn2NjrJies9Wt8hrxVS15uUyC1wKWc8/qz1o+sRJHW8XZF9umBFa8fFa+M0HDcwCeQ54yPPIJBOI1EQ4C0i1zszae1wMTsBO3oSR/gpjttE/2KtgUPvgLyHqKNURP+wMSLWCvl0OWjh283+VnkrHxtcNy7PPahRsPKEVpPzm5m7ZhS9rEjMXhHA8vCjPIX+4tOl9/4xwXhM47/7qkY1PjtcSiAFAbg/VX7lGK0IToYnQREJkTR3fhVXLVdlcFOxT67VS/XrfUJLVSIKEVmIPerB3ohUh1dKMzOwcH8CfQAfjV6kILTj8Skr0Vat8Y2fA/PzT/fDGgtyIKJ1F9UN3hxIivVSD8dCJR8/l+eOpyw1R3tss2wNiA0hfWvE1zpkwbbMzNojW8TRLDcKJVhgeAVItCoqExD8OY+Gz0V+zdQAAAABJRU5ErkJggg==" />
     </g>
   </g></g>
 </svg>

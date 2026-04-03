@@ -47,22 +47,9 @@
       <circle cx="5" cy="23" r="2" fill="#A08000"/><circle cx="23" cy="23" r="2" fill="#A08000"/>
     </symbol>
 
-    <!-- COIN SYMBOL — pixel art with black outline -->
-    <symbol id="coin" viewBox="0 0 12 14">
-      <!-- Black outline shape -->
-      <rect x="4" y="0" width="4" height="2" fill="#000"/>
-      <rect x="2" y="2" width="2" height="2" fill="#000"/><rect x="8" y="2" width="2" height="2" fill="#000"/>
-      <rect x="0" y="4" width="2" height="6" fill="#000"/><rect x="10" y="4" width="2" height="6" fill="#000"/>
-      <rect x="2" y="10" width="2" height="2" fill="#000"/><rect x="8" y="10" width="2" height="2" fill="#000"/>
-      <rect x="4" y="12" width="4" height="2" fill="#000"/>
-      <!-- Gold fill -->
-      <rect x="4" y="2" width="4" height="10" fill="#E8A800"/>
-      <rect x="2" y="4" width="8" height="6" fill="#E8A800"/>
-      <!-- White highlight -->
-      <rect x="2" y="4" width="2" height="6" fill="#fff"/>
-      <rect x="4" y="2" width="2" height="2" fill="#fff"/>
-      <!-- Inner detail -->
-      <rect x="4" y="4" width="2" height="6" fill="#F8D830"/>
+    <!-- COIN SYMBOL — SMW sprite (PNG) -->
+    <symbol id="coin" viewBox="0 0 84 96">
+      <image width="84" height="96" style="image-rendering:pixelated" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFQAAABgCAYAAACDgFV6AAABGElEQVR42u3d0QkCMRAFwI0IWpXWrlXp11rBCYFbk5zzChAcsjwW72KL+mTMlVb54acQoECBCtCFG2+X1s7cp/xba1MZOaFGHihQAbpEy2dpaz+vY77w/a3ljTxQAQpUy2dXm/e29u1Vusvn4zKk/Z1QIw8UqACdJufpfjcftOM7oUCBClCgh2z5KN3ZF8nW7v9lx08n1MgDBYoAKFCgAhQoUAEKFKgABQoUqAAFClSAAgUqQIECFaBAgQIVoECBClCg8RfP2G++h37QZ++9L2/kgQpQoIds+Tbi/vkf3EzrhAIVoECBhrvvSm+4nWzHd8OtkQcqQIFq+fJ/q+m8gXbH1tbyRh6oAAWq5cM/zzqhRh6oAAW6cD6s+y9Y202aVAAAAABJRU5ErkJggg==" />
     </symbol>
 
     <!-- BRICK SYMBOL -->
@@ -77,6 +64,10 @@
       <rect x="1" y="9" width="6" height="1" fill="#E89050" opacity=".6"/>
       <rect x="9" y="9" width="6" height="1" fill="#E89050" opacity=".6"/>
     </symbol>
+
+    <clipPath id="pipe-clip-r">
+      <rect x="730" y="0" width="60" height="82"/>
+    </clipPath>
   </defs>
 
   <style>
@@ -89,7 +80,7 @@
     @keyframes twinkle{0%,100%{opacity:.12}30%{opacity:.18}50%{opacity:.55}70%{opacity:.2}}
     @keyframes twinkle2{0%,100%{opacity:.1}40%{opacity:.15}60%{opacity:.45}80%{opacity:.12}}
     @keyframes twinkle3{0%,100%{opacity:.15}20%{opacity:.5}50%{opacity:.12}80%{opacity:.4}}
-    @keyframes piranha{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+    @keyframes piranha{0%,35%{transform:translateY(45px)}50%{transform:translateY(0)}65%{transform:translateY(0)}80%,100%{transform:translateY(45px)}}
 
     .cl{animation:cloud 50s linear infinite}
     .fl{animation:fl 3s ease-in-out infinite}.fl1{animation-delay:.5s}
@@ -106,7 +97,7 @@
     .tw6{animation:twinkle 14s ease-in-out infinite 4s}
     .tw7{animation:twinkle2 8s ease-in-out infinite 1.2s}
     .tw8{animation:twinkle3 13s ease-in-out infinite 5s}
-    .pir{animation:piranha 3s ease-in-out infinite}
+    .pir{animation:piranha 4.5s ease-in-out infinite}
   </style>
 
   <!-- Night sky -->
@@ -193,31 +184,40 @@
   <!-- RIGHT PIPE — pixel-accurate -->
   <use href="#pipe" x="738" y="80" width="44" height="70"/>
 
-  <!-- PIRANHA PLANT from right pipe -->
-  <g class="pir" transform-origin="760 72">
-    <!-- Stem -->
-    <rect x="756" y="68" width="8" height="16" fill="#00A800" stroke="#006800" stroke-width="1"/>
-    <rect x="754" y="72" width="4" height="3" fill="#30C830" rx="1"/><!-- left leaf -->
-    <rect x="762" y="74" width="4" height="3" fill="#30C830" rx="1"/><!-- right leaf -->
-    <!-- Head — red bulb -->
-    <ellipse cx="760" cy="58" rx="14" ry="11" fill="#E04030" stroke="#801810" stroke-width="1"/>
-    <!-- White polka dots -->
-    <circle cx="751" cy="57" r="2.5" fill="#fff" opacity=".9"/>
-    <circle cx="758" cy="52" r="2" fill="#fff" opacity=".9"/>
-    <circle cx="766" cy="55" r="2.5" fill="#fff" opacity=".9"/>
-    <circle cx="769" cy="61" r="1.8" fill="#fff" opacity=".8"/>
-    <circle cx="752" cy="63" r="1.5" fill="#fff" opacity=".7"/>
-    <!-- White lips/teeth — venus flytrap mouth -->
-    <path d="M 747 55 Q 750 48 754 50 L 758 46 L 762 50 Q 766 48 769 55" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
-    <!-- Inner teeth -->
-    <rect x="751" y="50" width="2" height="4" fill="#fff" rx=".5" transform="rotate(-10,752,52)"/>
-    <rect x="756" y="47" width="2" height="4" fill="#fff" rx=".5"/>
-    <rect x="761" y="49" width="2" height="4" fill="#fff" rx=".5" transform="rotate(10,762,51)"/>
+  <!-- PIRANHA PLANT — SMW sprite (PNG), clipped to pipe opening -->
+  <g clip-path="url(#pipe-clip-r)">
+    <g class="pir" transform-origin="760 72">
+      <image x="742" y="35" width="36" height="55" style="image-rendering:pixelated" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFwAAABgCAYAAACQVxWOAAADNElEQVR42u2dsW4TQRCG9xANNUVEEyyBgpQoJqnyDpEQ5oUoeKEEIeUdUhEigUQEkk2DUlDTIJkO5jaezdzc7p7P/v4qds723mrm0+y/43Uzm81CH32/mS89r3u2N2nCgBpq3A8CqiomvLIe5k7H688fVz4/PThW36MWXtZh3EQ4SGHC0dAMt7DvvutiNtaWddwfLs5bj1+dzohwkILKIWUTtVgsiHCQgoZBSlxteKqW6cFxsVWnXBmmxqZhpG9VQoSDFCYcrQPDNaft+stV+4lGIHi5DGMs/f6cnPz7+yz635vHT3o5h0Q4SAEpaYzE2JBIMeIld4molYJWjKR09uvnSrwQ4SAF3YsUUytBY8z6+LqBK5ink0n7Xnd2bBN2efn/gViFWisWIhykUKXcNX6apsrWl6xYUqkao89ambTe+/a2M17k9pvV5CLCQQoTjgZZaebm9gAmV1wKeiRXpK0SkQgHKShLm0TKvMrcHRWXidp1JdscVMPLaGQR4SAFpJSvXhy+uRUhamVSEIVEOEhhwtHWds8aee7idoLZVoeQCAcpKAtSpvtHerdVGF+jfA6E0CYBUlAnpMg9xNa+Ycq/tq7YtPfQOrdCCGE+7+VzezCS9LzFPibNnCAFMeFjWWnKL1LdcfAkmzM7cCVZbRVf/QYpKKXGc8iY+WSdzEjpiwpZ4lkb8FOrSU4EAikoC1I85/+lDK9aXnQOI4pzC0EKYsI3ieG5z3eV34OsyeZa5+IS4SAlYF55ZU1NiZ4UAp6/+7Hy+W9vd0dxhDYRzoSDlKyny3dN9dyn2NcaNxEOUphwNJbjO07fP3J98MXr31V+nkC7h9zjtrKdCAcpYXvMqxRCvCnYNU09+Or7+tL3IBFDhIOUDUfK4f5RVozcfPpqum7v5YvOqelBivaavuP04oUIBylbhBQrQqzp6JFM4Tg1rUiR19UaqxUxRDhIYcJRqGReefhn3V8Myl5l+zN3XTeljbvv2Kyfk2I7EQ5StqgsjNPHk4LB6AtrRlkqhbVUTaFPuwfP2LwYkmMgwkEKfnjxriUrXqxI8WCkZOMqfjhIYcLRGBvy17mNjggHKaiE/gJXdXpi1NHEKQAAAABJRU5ErkJggg==" />
+    </g>
   </g>
 
   <!-- ========== TEXT ========== -->
   <text x="400" y="72" font-family="'Press Start 2P','Courier New',monospace" font-size="20" fill="#fff" text-anchor="middle" letter-spacing="2">Taylor Fradella</text>
   <text x="400" y="100" font-family="JetBrains Mono,monospace" font-size="11" fill="#C4B5FD" text-anchor="middle" letter-spacing="1">const passion = "design" + "engineering"</text>
   <rect class="bk" x="543" y="89" width="7" height="12" fill="#FFD700" opacity=".8"/>
-  <text x="400" y="125" font-family="JetBrains Mono,monospace" font-size="9" fill="#8B7FBA" text-anchor="middle" letter-spacing="1">frontend · full-stack</text>
+  <text x="400" y="120" font-family="JetBrains Mono,monospace" font-size="9" fill="#8B7FBA" text-anchor="middle" letter-spacing="1">frontend · full-stack</text>
+
+  <!-- GROUND — matching game-scene style -->
+  <rect x="0" y="128" width="800" height="2" fill="#000"/>
+  <rect x="0" y="130" width="800" height="5" fill="#00E800"/>
+  <rect x="0" y="130" width="800" height="2" fill="#40F840"/>
+  <rect x="15" y="127" width="6" height="4" fill="#00E800"/><rect x="55" y="126" width="8" height="5" fill="#00C800"/>
+  <rect x="120" y="127" width="5" height="4" fill="#00E800"/><rect x="185" y="126" width="7" height="5" fill="#00C800"/>
+  <rect x="250" y="127" width="6" height="4" fill="#00E800"/><rect x="320" y="126" width="8" height="5" fill="#00C800"/>
+  <rect x="390" y="127" width="5" height="4" fill="#00E800"/><rect x="460" y="126" width="7" height="5" fill="#00C800"/>
+  <rect x="530" y="127" width="6" height="4" fill="#00E800"/><rect x="600" y="126" width="8" height="5" fill="#00C800"/>
+  <rect x="670" y="127" width="5" height="4" fill="#00E800"/><rect x="740" y="126" width="7" height="5" fill="#00C800"/>
+  <rect x="0" y="135" width="800" height="3" fill="#000"/>
+  <rect x="0" y="135" width="30" height="3" fill="#008800"/><rect x="40" y="135" width="50" height="3" fill="#006800"/>
+  <rect x="100" y="135" width="35" height="3" fill="#008800"/><rect x="150" y="135" width="45" height="3" fill="#006800"/>
+  <rect x="210" y="135" width="30" height="3" fill="#008800"/><rect x="260" y="135" width="50" height="3" fill="#006800"/>
+  <rect x="330" y="135" width="35" height="3" fill="#008800"/><rect x="380" y="135" width="40" height="3" fill="#006800"/>
+  <rect x="440" y="135" width="30" height="3" fill="#008800"/><rect x="490" y="135" width="50" height="3" fill="#006800"/>
+  <rect x="560" y="135" width="35" height="3" fill="#008800"/><rect x="610" y="135" width="40" height="3" fill="#006800"/>
+  <rect x="670" y="135" width="30" height="3" fill="#008800"/><rect x="720" y="135" width="50" height="3" fill="#006800"/>
+  <rect x="0" y="138" width="800" height="2" fill="#806830"/>
+  <rect x="0" y="140" width="800" height="10" fill="#C8A868"/>
+  <rect x="70" y="142" width="6" height="3" fill="#D0C060" opacity=".5"/>
+  <rect x="350" y="143" width="5" height="3" fill="#A0A040" opacity=".4"/>
+  <rect x="600" y="142" width="7" height="3" fill="#D0C060" opacity=".5"/>
 </svg>
