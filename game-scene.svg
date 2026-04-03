@@ -1,0 +1,265 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 140" width="800" height="140">
+  <defs>
+    <!-- COIN -->
+    <symbol id="coin" viewBox="0 0 12 14">
+      <rect x="4" y="0" width="4" height="2" fill="#000"/>
+      <rect x="2" y="2" width="2" height="2" fill="#000"/><rect x="8" y="2" width="2" height="2" fill="#000"/>
+      <rect x="0" y="4" width="2" height="6" fill="#000"/><rect x="10" y="4" width="2" height="6" fill="#000"/>
+      <rect x="2" y="10" width="2" height="2" fill="#000"/><rect x="8" y="10" width="2" height="2" fill="#000"/>
+      <rect x="4" y="12" width="4" height="2" fill="#000"/>
+      <rect x="4" y="2" width="4" height="10" fill="#E8A800"/>
+      <rect x="2" y="4" width="8" height="6" fill="#E8A800"/>
+      <rect x="2" y="4" width="2" height="6" fill="#fff"/>
+      <rect x="4" y="2" width="2" height="2" fill="#fff"/>
+      <rect x="4" y="4" width="2" height="6" fill="#F8D830"/>
+    </symbol>
+
+    <!-- TECH BLOCK BASE — golden block without ? -->
+    <symbol id="tblock" viewBox="0 0 32 32">
+      <rect width="32" height="32" fill="#000" rx="2"/>
+      <rect x="1" y="1" width="30" height="30" fill="#F0C800" rx="1"/>
+      <rect x="2" y="2" width="28" height="28" fill="#E8B800" rx="1"/>
+      <rect x="1" y="1" width="30" height="2" fill="#F8E060"/>
+      <rect x="1" y="1" width="2" height="30" fill="#F8E060"/>
+      <circle cx="5" cy="5" r="2" fill="#A08000"/><circle cx="27" cy="5" r="2" fill="#A08000"/>
+      <circle cx="5" cy="27" r="2" fill="#A08000"/><circle cx="27" cy="27" r="2" fill="#A08000"/>
+    </symbol>
+
+    <!-- GOOMBA -->
+    <symbol id="goomba" viewBox="0 0 14 16">
+      <rect x="4" y="0" width="6" height="2" fill="#A07050"/>
+      <rect x="2" y="2" width="10" height="2" fill="#B08060"/>
+      <rect x="1" y="4" width="12" height="2" fill="#A07050"/>
+      <rect x="1" y="4" width="2" height="1" fill="#000"/><rect x="2" y="5" width="2" height="1" fill="#000"/><rect x="3" y="4" width="1" height="1" fill="#000"/>
+      <rect x="11" y="4" width="2" height="1" fill="#000"/><rect x="9" y="5" width="2" height="1" fill="#000"/><rect x="10" y="4" width="1" height="1" fill="#000"/>
+      <rect x="2" y="6" width="3" height="2" fill="#fff"/><rect x="9" y="6" width="3" height="2" fill="#fff"/>
+      <rect x="4" y="6" width="1" height="2" fill="#000"/><rect x="9" y="6" width="1" height="2" fill="#000"/>
+      <rect x="1" y="8" width="12" height="3" fill="#F0D0B0"/>
+      <rect x="1" y="8" width="1" height="3" fill="#A07050"/><rect x="12" y="8" width="1" height="3" fill="#A07050"/>
+      <rect x="4" y="8" width="2" height="2" fill="#fff"/><rect x="8" y="8" width="2" height="2" fill="#fff"/>
+      <rect x="6" y="9" width="2" height="1" fill="#604020"/>
+      <rect x="3" y="11" width="8" height="2" fill="#604020"/>
+      <rect x="0" y="13" width="4" height="3" fill="#000"/><rect x="1" y="13" width="3" height="2" fill="#604020"/>
+      <rect x="10" y="13" width="4" height="3" fill="#000"/><rect x="10" y="13" width="3" height="2" fill="#604020"/>
+    </symbol>
+  </defs>
+  <style>
+    /* Block animations */
+    @keyframes bump{0%,85%,100%{transform:translateY(0)}90%{transform:translateY(-5px)}95%{transform:translateY(-1px)}}
+    @keyframes cs{0%,100%{transform:scaleX(1)}50%{transform:scaleX(.15)}}
+    @keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+    .b0{animation:bump 4.5s ease-in-out infinite 0s}.b1{animation:bump 4.5s ease-in-out infinite .7s}.b2{animation:bump 4.5s ease-in-out infinite 1.4s}.b3{animation:bump 4.5s ease-in-out infinite 2.1s}.b4{animation:bump 4.5s ease-in-out infinite 2.8s}.b5{animation:bump 4.5s ease-in-out infinite 3.5s}
+    .c0{animation:cs 2s ease-in-out infinite .2s}.c1{animation:cs 2s ease-in-out infinite .6s}.c2{animation:cs 2s ease-in-out infinite 1s}.c3{animation:cs 2s ease-in-out infinite 1.4s}.c4{animation:cs 2s ease-in-out infinite 1.8s}
+    .f0{animation:fl 2.5s ease-in-out infinite .1s}.f1{animation:fl 2.5s ease-in-out infinite .5s}.f2{animation:fl 2.5s ease-in-out infinite .9s}.f3{animation:fl 2.5s ease-in-out infinite 1.3s}.f4{animation:fl 2.5s ease-in-out infinite 1.7s}
+
+    /* Run animations */
+    @keyframes mario-run{0%{transform:translateX(-80px)}100%{transform:translateX(830px)}}
+    @keyframes mario-jump{
+      0%,27%{transform:translateY(0)}28%{transform:translateY(-10px)}29%{transform:translateY(-26px)}30%{transform:translateY(-30px)}31%{transform:translateY(-30px)}32%{transform:translateY(-28px)}33%{transform:translateY(-10px)}34%{transform:translateY(0)}
+      35%,52%{transform:translateY(0)}53%{transform:translateY(-10px)}54%{transform:translateY(-26px)}55%{transform:translateY(-30px)}56%{transform:translateY(-30px)}57%{transform:translateY(-28px)}58%{transform:translateY(-10px)}59%{transform:translateY(0)}
+      60%,76%{transform:translateY(0)}77%{transform:translateY(-10px)}78%{transform:translateY(-26px)}79%{transform:translateY(-30px)}80%{transform:translateY(-30px)}81%{transform:translateY(-28px)}82%{transform:translateY(-10px)}83%{transform:translateY(0)}
+      84%,100%{transform:translateY(0)}
+    }
+    @keyframes mario-run-show{0%,27%{opacity:1}28%,34%{opacity:0}35%,52%{opacity:1}53%,59%{opacity:0}60%,76%{opacity:1}77%,83%{opacity:0}84%,100%{opacity:1}}
+    @keyframes mario-jump-show{0%,27%{opacity:0}28%,34%{opacity:1}35%,52%{opacity:0}53%,59%{opacity:1}60%,76%{opacity:0}77%,83%{opacity:1}84%,100%{opacity:0}}
+    @keyframes legA{0%,40%{opacity:1}41%,80%{opacity:0}81%,100%{opacity:1}}
+    @keyframes legB{0%,40%{opacity:0}41%,80%{opacity:1}81%,100%{opacity:0}}
+    @keyframes goomba-walk{0%,100%{transform:translateX(0)}50%{transform:translateX(-20px)}}
+
+    .mw{animation:mario-run 10s linear infinite}
+    .lw{animation:mario-run 10s linear infinite 2s}
+    .mj{animation:mario-jump 10s linear infinite}
+    .lj{animation:mario-jump 10s linear infinite 2s}
+    .mrs{animation:mario-run-show 10s step-end infinite}
+    .mjs{animation:mario-jump-show 10s step-end infinite}
+    .lrs{animation:mario-run-show 10s step-end infinite 2s}
+    .ljs{animation:mario-jump-show 10s step-end infinite 2s}
+    .la{animation:legA .15s step-end infinite}
+    .lb{animation:legB .15s step-end infinite}
+    .gw{animation:goomba-walk 3s ease-in-out infinite}
+  </style>
+  <rect width="800" height="140" fill="#050c21"/>
+
+  <!-- ============ TECH BLOCKS WITH REAL LOGOS ============ -->
+  <!-- Positions: 82, 192, 302, 412, 522, 632 (110px spacing) -->
+
+  <!-- React -->
+  <g class="b0" transform-origin="82 22">
+    <use href="#tblock" x="66" y="6" width="32" height="32"/>
+    <svg x="72" y="10" width="20" height="20" viewBox="0 0 128 128">
+      <g fill="#61DAFB"><circle cx="64" cy="64" r="11.4"/>
+      <path d="M107.3 45.2c-2.2-.8-4.5-1.6-6.9-2.3.6-2.4 1.1-4.8 1.5-7.1 2.1-13.2-.2-22.5-6.6-26.1-1.9-1.1-4-1.6-6.4-1.6-7 0-15.9 5.2-24.9 13.9-9-8.7-17.9-13.9-24.9-13.9-2.4 0-4.5.5-6.4 1.6-6.4 3.7-8.7 13-6.6 26.1.4 2.3.9 4.7 1.5 7.1-2.4.7-4.7 1.4-6.9 2.3C8.2 50 1.4 56.6 1.4 64s6.9 14 19.3 18.8c2.2.8 4.5 1.6 6.9 2.3-.6 2.4-1.1 4.8-1.5 7.1-2.1 13.2.2 22.5 6.6 26.1 1.9 1.1 4 1.6 6.4 1.6 7.1 0 16-5.2 24.9-13.9 9 8.7 17.9 13.9 24.9 13.9 2.4 0 4.5-.5 6.4-1.6 6.4-3.7 8.7-13 6.6-26.1-.4-2.3-.9-4.7-1.5-7.1 2.4-.7 4.7-1.4 6.9-2.3 12.5-4.8 19.3-11.4 19.3-18.8s-6.8-14-19.3-18.8zM92.5 14.7c4.1 2.4 5.5 9.8 3.8 20.3-.3 2.1-.8 4.3-1.4 6.6-5.2-1.2-10.7-2-16.5-2.5-3.4-4.8-6.9-9.1-10.4-13 7.4-7.3 14.9-12.3 21-12.3 1.3 0 2.5.3 3.5.9zM81.3 74c-1.8 3.2-3.9 6.4-6.1 9.6-3.7.3-7.4.4-11.2.4-3.9 0-7.6-.1-11.2-.4-2.2-3.2-4.2-6.4-6-9.6-1.9-3.3-3.7-6.7-5.3-10 1.6-3.3 3.4-6.7 5.3-10 1.8-3.2 3.9-6.4 6.1-9.6 3.7-.3 7.4-.4 11.2-.4 3.9 0 7.6.1 11.2.4 2.2 3.2 4.2 6.4 6 9.6 1.9 3.3 3.7 6.7 5.3 10-1.7 3.3-3.4 6.6-5.3 10zm8.3-3.3c1.5 3.5 2.7 6.9 3.8 10.3-3.4.8-7 1.4-10.8 1.9 1.2-1.9 2.5-3.9 3.6-6 1.2-2.1 2.3-4.2 3.4-6.2zM64 97.8c-2.4-2.6-4.7-5.4-6.9-8.3 2.3.1 4.6.2 6.9.2 2.3 0 4.6-.1 6.9-.2-2.2 2.9-4.5 5.7-6.9 8.3zm-18.6-15c-3.8-.5-7.4-1.1-10.8-1.9 1.1-3.3 2.3-6.8 3.8-10.3 1.1 2 2.2 4.1 3.4 6.1 1.2 2.2 2.4 4.1 3.6 6.1zm-7-25.5c-1.5-3.5-2.7-6.9-3.8-10.3 3.4-.8 7-1.4 10.8-1.9-1.2 1.9-2.5 3.9-3.6 6-1.2 2.1-2.3 4.2-3.4 6.2zM64 30.2c2.4 2.6 4.7 5.4 6.9 8.3-2.3-.1-4.6-.2-6.9-.2-2.3 0-4.6.1-6.9.2 2.2-2.9 4.5-5.7 6.9-8.3zm22.2 21l-3.6-6c3.8.5 7.4 1.1 10.8 1.9-1.1 3.3-2.3 6.8-3.8 10.3-1.1-2.1-2.2-4.2-3.4-6.2zM31.7 35c-1.7-10.5-.3-17.9 3.8-20.3 1-.6 2.2-.9 3.5-.9 6 0 13.5 4.9 21 12.3-3.5 3.8-7 8.2-10.4 13-5.8.5-11.3 1.4-16.5 2.5-.6-2.3-1-4.5-1.4-6.6zM7 64c0-4.7 5.7-9.7 15.7-13.4 2-.8 4.2-1.5 6.4-2.1 1.6 5 3.6 10.3 6 15.6-2.4 5.3-4.5 10.5-6 15.5C15.3 75.6 7 69.6 7 64zm28.5 49.3c-4.1-2.4-5.5-9.8-3.8-20.3.3-2.1.8-4.3 1.4-6.6 5.2 1.2 10.7 2 16.5 2.5 3.4 4.8 6.9 9.1 10.4 13-7.4 7.3-14.9 12.3-21 12.3-1.3 0-2.5-.3-3.5-.9zM96.3 93c1.7 10.5.3 17.9-3.8 20.3-1 .6-2.2.9-3.5.9-6 0-13.5-4.9-21-12.3 3.5-3.8 7-8.2 10.4-13 5.8-.5 11.3-1.4 16.5-2.5.6 2.3 1 4.5 1.4 6.6zm9-15.6c-2 .8-4.2 1.5-6.4 2.1-1.6-5-3.6-10.3-6-15.6 2.4-5.3 4.5-10.5 6-15.5 13.8 4 22.1 10 22.1 15.6 0 4.7-5.8 9.7-15.7 13.4z"/></g>
+    </svg>
+  </g>
+  <g class="f0" transform-origin="137 22"><g class="c0" transform-origin="137 22"><use href="#coin" x="131" y="15" width="12" height="14"/></g></g>
+
+  <!-- Next.js -->
+  <g class="b1" transform-origin="192 22">
+    <use href="#tblock" x="176" y="6" width="32" height="32"/>
+    <svg x="182" y="10" width="20" height="20" viewBox="0 0 128 128">
+      <path fill="#fff" d="M64 0C28.7 0 0 28.7 0 64s28.7 64 64 64c11.2 0 21.7-2.9 30.8-7.9L48.4 55.3v36.6h-6.8V41.8h6.8l50.5 75.8C116.4 106.2 128 86.5 128 64c0-35.3-28.7-64-64-64zm22.1 84.6l-7.5-11.3V41.8h7.5v42.8z"/>
+    </svg>
+  </g>
+  <g class="f1" transform-origin="247 22"><g class="c1" transform-origin="247 22"><use href="#coin" x="241" y="15" width="12" height="14"/></g></g>
+
+  <!-- TypeScript -->
+  <g class="b2" transform-origin="302 22">
+    <use href="#tblock" x="286" y="6" width="32" height="32"/>
+    <svg x="292" y="10" width="20" height="20" viewBox="0 0 128 128">
+      <path fill="#fff" d="M22.67 47h99.67v73.67H22.67z"/>
+      <path fill="#007acc" d="M1.5 63.91v62.5h125v-125H1.5zm100.73-5a15.56 15.56 0 017.82 4.5 20.58 20.58 0 013 4c0 .16-5.4 3.81-8.69 5.85-.12.08-.6-.44-1.13-1.23a7.09 7.09 0 00-5.87-3.53c-3.79-.26-6.23 1.73-6.21 5a4.58 4.58 0 00.54 2.34c.83 1.73 2.38 2.76 7.24 4.86 8.95 3.85 12.78 6.39 15.16 10 2.66 4 3.25 10.46 1.45 15.24-2 5.2-6.9 8.73-13.83 9.9a38.32 38.32 0 01-9.52-.1 23 23 0 01-12.72-6.63c-1.15-1.27-3.39-4.58-3.25-4.82a9.34 9.34 0 011.15-.73L82 101l3.59-2.08.75 1.11a16.78 16.78 0 004.74 4.54c4 2.1 9.46 1.81 12.16-.62a5.43 5.43 0 00.69-6.92c-1-1.39-3-2.56-8.59-5-6.45-2.78-9.23-4.5-11.77-7.24a16.48 16.48 0 01-3.43-6.25 25 25 0 01-.22-8c1.33-6.23 6-10.58 12.82-11.87a31.66 31.66 0 019.49.26zm-29.34 5.24v5.12H56.66v46.23H45.15V69.26H28.88v-5a49.19 49.19 0 01.12-5.17C29.08 59 39 59 51 59h21.83z"/>
+    </svg>
+  </g>
+  <g class="f2" transform-origin="357 22"><g class="c2" transform-origin="357 22"><use href="#coin" x="351" y="15" width="12" height="14"/></g></g>
+
+  <!-- C++ -->
+  <g class="b3" transform-origin="412 22">
+    <use href="#tblock" x="396" y="6" width="32" height="32"/>
+    <svg x="402" y="10" width="20" height="20" viewBox="0 0 128 128">
+      <path fill="#00599c" d="M118.766 95.82c.89-1.543 1.441-3.28 1.441-4.843V36.78c0-1.558-.55-3.297-1.441-4.84l-55.32 31.94Zm0 0"/>
+      <path fill="#004482" d="m68.36 126.586 46.933-27.094c1.352-.781 2.582-2.129 3.473-3.672l-55.32-31.94L8.12 95.82c.89 1.543 2.121 2.89 3.473 3.672l46.933 27.094c2.703 1.562 7.13 1.562 9.832 0Zm0 0"/>
+      <path fill="#659ad2" d="M118.766 31.941c-.891-1.546-2.121-2.894-3.473-3.671L68.359 1.172c-2.703-1.563-7.129-1.563-9.832 0L11.594 28.27C8.89 29.828 6.68 33.66 6.68 36.78v54.196c0 1.562.55 3.3 1.441 4.843L63.445 63.88Zm0 0"/>
+      <path fill="#fff" d="M63.445 26.035c-20.867 0-37.843 16.977-37.843 37.844s16.976 37.844 37.843 37.844c13.465 0 26.024-7.247 32.77-18.91L79.84 73.335c-3.38 5.84-9.66 9.465-16.395 9.465-10.433 0-18.922-8.488-18.922-18.922 0-10.434 8.49-18.922 18.922-18.922 6.73 0 13.017 3.629 16.39 9.465l16.38-9.477c-6.75-11.664-19.305-18.91-32.77-18.91zM92.88 57.57v4.207h-4.207v4.203h4.207v4.207h4.203V65.98h4.203v-4.203h-4.203V57.57H92.88zm15.766 0v4.207h-4.204v4.203h4.204v4.207h4.207V65.98h4.203v-4.203h-4.203V57.57h-4.207z"/>
+    </svg>
+  </g>
+  <g class="f3" transform-origin="467 22"><g class="c3" transform-origin="467 22"><use href="#coin" x="461" y="15" width="12" height="14"/></g></g>
+
+  <!-- Azure -->
+  <g class="b4" transform-origin="522 22">
+    <use href="#tblock" x="506" y="6" width="32" height="32"/>
+    <svg x="512" y="10" width="20" height="20" viewBox="0 0 128 128">
+      <path d="M46.09.002h40.685L44.541 125.137a6.485 6.485 0 01-6.146 4.413H6.733a6.482 6.482 0 01-5.262-2.699 6.474 6.474 0 01-.876-5.848L39.944 4.414A6.488 6.488 0 0146.09 0z" fill="#0078d4" transform="translate(.587 4.468) scale(.91904)"/>
+      <path d="M97.28 81.607H37.987a2.743 2.743 0 00-1.874 4.751l38.1 35.562a5.991 5.991 0 004.087 1.61h33.574z" fill="#0078d4"/>
+      <path d="M46.09.002A6.434 6.434 0 0039.93 4.5L.644 120.897a6.469 6.469 0 006.106 8.653h32.48a6.942 6.942 0 005.328-4.531l7.834-23.089 27.985 26.101a6.618 6.618 0 004.165 1.519h36.396l-15.963-45.616-46.533.011L86.922.002z" fill="#0050c8" opacity=".5"/>
+      <path d="M98.055 4.408A6.476 6.476 0 0091.917.002H46.575a6.478 6.478 0 016.137 4.406l39.35 116.594a6.476 6.476 0 01-6.137 8.55h45.344a6.48 6.48 0 006.136-8.55z" fill="#1490df" transform="translate(.587 4.468) scale(.91904)"/>
+    </svg>
+  </g>
+  <g class="f4" transform-origin="577 22"><g class="c4" transform-origin="577 22"><use href="#coin" x="571" y="15" width="12" height="14"/></g></g>
+
+  <!-- PostgreSQL -->
+  <g class="b5" transform-origin="632 22">
+    <use href="#tblock" x="616" y="6" width="32" height="32"/>
+    <svg x="622" y="10" width="20" height="20" viewBox="0 0 128 128">
+      <path fill="#336791" d="M115.731 77.44c-13.925 2.873-14.882-1.842-14.882-1.842 14.703-21.816 20.849-49.51 15.545-56.287C101.924.823 76.875 9.566 76.457 9.793l-.135.024c-2.751-.571-5.83-.911-9.291-.967-6.301-.103-11.08 1.652-14.707 4.402 0 0-44.684-18.408-42.606 23.151.442 8.842 12.672 66.899 27.26 49.363 5.332-6.412 10.483-11.834 10.483-11.834 2.559 1.699 5.622 2.567 8.833 2.255l.25-.212c-.078.796-.042 1.575.1 2.497-3.758 4.199-2.654 4.936-10.167 6.482-7.602 1.566-3.136 4.355-.22 5.084 3.534.884 11.712 2.136 17.237-5.598l-.221.882c1.473 1.18 2.507 7.672 2.334 13.557-.174 5.885-.29 9.926.871 13.082 1.16 3.156 2.316 10.256 12.192 8.14 8.252-1.768 12.528-6.351 13.124-13.995.422-5.435 1.377-4.631 1.438-9.49l.767-2.3c.884-7.367.14-9.743 5.225-8.638l1.235.108c3.742.17 8.639-.602 11.514-1.938 6.19-2.871 9.861-7.667 3.758-6.408z"/>
+    </svg>
+  </g>
+
+  <!-- ============ MARIO RUN SCENE ============ -->
+
+  <!-- GROUND -->
+  <rect x="0" y="118" width="800" height="2" fill="#000"/>
+  <rect x="0" y="120" width="800" height="5" fill="#00E800"/>
+  <rect x="0" y="120" width="800" height="2" fill="#40F840"/>
+  <rect x="15" y="117" width="6" height="4" fill="#00E800"/><rect x="55" y="116" width="8" height="5" fill="#00C800"/>
+  <rect x="120" y="117" width="5" height="4" fill="#00E800"/><rect x="185" y="116" width="7" height="5" fill="#00C800"/>
+  <rect x="250" y="117" width="6" height="4" fill="#00E800"/><rect x="320" y="116" width="8" height="5" fill="#00C800"/>
+  <rect x="390" y="117" width="5" height="4" fill="#00E800"/><rect x="460" y="116" width="7" height="5" fill="#00C800"/>
+  <rect x="530" y="117" width="6" height="4" fill="#00E800"/><rect x="600" y="116" width="8" height="5" fill="#00C800"/>
+  <rect x="670" y="117" width="5" height="4" fill="#00E800"/><rect x="740" y="116" width="7" height="5" fill="#00C800"/>
+  <rect x="0" y="125" width="800" height="3" fill="#000"/>
+  <rect x="0" y="125" width="30" height="3" fill="#008800"/><rect x="40" y="125" width="50" height="3" fill="#006800"/>
+  <rect x="100" y="125" width="35" height="3" fill="#008800"/><rect x="150" y="125" width="45" height="3" fill="#006800"/>
+  <rect x="210" y="125" width="30" height="3" fill="#008800"/><rect x="260" y="125" width="50" height="3" fill="#006800"/>
+  <rect x="330" y="125" width="35" height="3" fill="#008800"/><rect x="380" y="125" width="40" height="3" fill="#006800"/>
+  <rect x="440" y="125" width="30" height="3" fill="#008800"/><rect x="490" y="125" width="50" height="3" fill="#006800"/>
+  <rect x="560" y="125" width="35" height="3" fill="#008800"/><rect x="610" y="125" width="40" height="3" fill="#006800"/>
+  <rect x="670" y="125" width="30" height="3" fill="#008800"/><rect x="720" y="125" width="50" height="3" fill="#006800"/>
+  <rect x="0" y="128" width="800" height="2" fill="#806830"/>
+  <rect x="0" y="130" width="800" height="10" fill="#C8A868"/>
+  <rect x="70" y="132" width="6" height="3" fill="#D0C060" opacity=".5"/>
+  <rect x="350" y="133" width="5" height="3" fill="#A0A040" opacity=".4"/>
+  <rect x="600" y="132" width="7" height="3" fill="#D0C060" opacity=".5"/>
+
+  <!-- GOOMBAS -->
+  <g class="gw"><use href="#goomba" x="200" y="90" width="22" height="28"/></g>
+  <g class="gw" style="animation-delay:1s"><use href="#goomba" x="430" y="90" width="22" height="28"/></g>
+  <g class="gw" style="animation-delay:2s"><use href="#goomba" x="640" y="90" width="22" height="28"/></g>
+
+  <!-- MARIO -->
+  <g class="mw"><g class="mj">
+    <g class="mrs">
+      <rect x="5" y="86" width="14" height="4" fill="#E02020" rx="1"/>
+      <rect x="3" y="90" width="18" height="3" fill="#E02020"/>
+      <rect x="3" y="93" width="4" height="3" fill="#804020"/>
+      <rect x="7" y="93" width="10" height="2" fill="#E8A030"/>
+      <rect x="17" y="93" width="3" height="2" fill="#E8A030"/>
+      <rect x="14" y="93" width="2" height="2" fill="#000"/>
+      <rect x="3" y="95" width="3" height="2" fill="#E8A030"/>
+      <rect x="6" y="95" width="8" height="2" fill="#E8A030"/>
+      <rect x="14" y="95" width="6" height="2" fill="#000"/>
+      <rect x="18" y="95" width="3" height="2" fill="#E8A030"/>
+      <rect x="3" y="98" width="16" height="4" fill="#E02020"/>
+      <rect x="0" y="99" width="3" height="4" fill="#E8A030"/>
+      <rect x="19" y="99" width="3" height="4" fill="#E8A030"/>
+      <rect x="4" y="102" width="14" height="4" fill="#0058F8"/>
+      <rect x="7" y="102" width="2" height="2" fill="#E8C800"/>
+      <rect x="13" y="102" width="2" height="2" fill="#E8C800"/>
+      <g class="la"><rect x="2" y="106" width="6" height="6" fill="#0058F8"/><rect x="14" y="106" width="6" height="4" fill="#0058F8"/><rect x="0" y="112" width="7" height="4" fill="#804020" rx="1"/><rect x="15" y="110" width="6" height="4" fill="#804020" rx="1"/></g>
+      <g class="lb"><rect x="4" y="106" width="6" height="4" fill="#0058F8"/><rect x="12" y="106" width="6" height="6" fill="#0058F8"/><rect x="3" y="110" width="6" height="4" fill="#804020" rx="1"/><rect x="13" y="112" width="7" height="4" fill="#804020" rx="1"/></g>
+    </g>
+    <g class="mjs">
+      <rect x="5" y="86" width="14" height="4" fill="#E02020" rx="1"/>
+      <rect x="3" y="90" width="18" height="3" fill="#E02020"/>
+      <rect x="3" y="93" width="4" height="3" fill="#804020"/>
+      <rect x="7" y="93" width="10" height="2" fill="#E8A030"/>
+      <rect x="17" y="93" width="3" height="2" fill="#E8A030"/>
+      <rect x="14" y="93" width="2" height="2" fill="#000"/>
+      <rect x="3" y="95" width="3" height="2" fill="#E8A030"/>
+      <rect x="6" y="95" width="8" height="2" fill="#E8A030"/>
+      <rect x="14" y="95" width="6" height="2" fill="#000"/>
+      <rect x="18" y="95" width="3" height="2" fill="#E8A030"/>
+      <rect x="3" y="98" width="16" height="4" fill="#E02020"/>
+      <rect x="19" y="96" width="3" height="3" fill="#E8A030"/>
+      <rect x="0" y="99" width="3" height="4" fill="#E8A030"/>
+      <rect x="4" y="102" width="14" height="3" fill="#0058F8"/>
+      <rect x="7" y="102" width="2" height="2" fill="#E8C800"/>
+      <rect x="13" y="102" width="2" height="2" fill="#E8C800"/>
+      <rect x="4" y="105" width="5" height="4" fill="#0058F8"/><rect x="11" y="105" width="5" height="4" fill="#0058F8"/>
+      <rect x="3" y="109" width="5" height="3" fill="#804020" rx="1"/><rect x="12" y="109" width="5" height="3" fill="#804020" rx="1"/>
+    </g>
+  </g></g>
+
+  <!-- LUIGI -->
+  <g class="lw"><g class="lj">
+    <g class="lrs">
+      <rect x="5" y="82" width="14" height="4" fill="#20A020" rx="1"/>
+      <rect x="3" y="86" width="18" height="3" fill="#20A020"/>
+      <rect x="3" y="89" width="4" height="3" fill="#804020"/>
+      <rect x="7" y="89" width="10" height="2" fill="#F0B070"/>
+      <rect x="17" y="89" width="3" height="2" fill="#F0B070"/>
+      <rect x="14" y="89" width="2" height="2" fill="#000"/>
+      <rect x="3" y="91" width="3" height="2" fill="#F0B070"/>
+      <rect x="6" y="91" width="8" height="2" fill="#F0B070"/>
+      <rect x="14" y="91" width="6" height="2" fill="#000"/>
+      <rect x="18" y="91" width="3" height="2" fill="#F0B070"/>
+      <rect x="3" y="94" width="16" height="4" fill="#20A020"/>
+      <rect x="0" y="95" width="3" height="4" fill="#fff"/>
+      <rect x="19" y="95" width="3" height="4" fill="#fff"/>
+      <rect x="4" y="98" width="14" height="4" fill="#0058F8"/>
+      <rect x="7" y="98" width="2" height="2" fill="#E8C800"/>
+      <rect x="13" y="98" width="2" height="2" fill="#E8C800"/>
+      <g class="la" style="animation-delay:.07s"><rect x="2" y="102" width="6" height="8" fill="#0058F8"/><rect x="14" y="102" width="6" height="6" fill="#0058F8"/><rect x="0" y="110" width="7" height="4" fill="#804020" rx="1"/><rect x="15" y="108" width="6" height="4" fill="#804020" rx="1"/></g>
+      <g class="lb" style="animation-delay:.07s"><rect x="4" y="102" width="6" height="6" fill="#0058F8"/><rect x="12" y="102" width="6" height="8" fill="#0058F8"/><rect x="3" y="108" width="6" height="4" fill="#804020" rx="1"/><rect x="13" y="110" width="7" height="4" fill="#804020" rx="1"/></g>
+    </g>
+    <g class="ljs">
+      <rect x="5" y="82" width="14" height="4" fill="#20A020" rx="1"/>
+      <rect x="3" y="86" width="18" height="3" fill="#20A020"/>
+      <rect x="3" y="89" width="4" height="3" fill="#804020"/>
+      <rect x="7" y="89" width="10" height="2" fill="#F0B070"/>
+      <rect x="17" y="89" width="3" height="2" fill="#F0B070"/>
+      <rect x="14" y="89" width="2" height="2" fill="#000"/>
+      <rect x="3" y="91" width="3" height="2" fill="#F0B070"/>
+      <rect x="6" y="91" width="8" height="2" fill="#F0B070"/>
+      <rect x="14" y="91" width="6" height="2" fill="#000"/>
+      <rect x="18" y="91" width="3" height="2" fill="#F0B070"/>
+      <rect x="3" y="94" width="16" height="4" fill="#20A020"/>
+      <rect x="19" y="92" width="3" height="3" fill="#fff"/>
+      <rect x="0" y="95" width="3" height="4" fill="#fff"/>
+      <rect x="4" y="98" width="14" height="3" fill="#0058F8"/>
+      <rect x="7" y="98" width="2" height="2" fill="#E8C800"/>
+      <rect x="13" y="98" width="2" height="2" fill="#E8C800"/>
+      <rect x="4" y="101" width="5" height="5" fill="#0058F8"/><rect x="11" y="101" width="5" height="5" fill="#0058F8"/>
+      <rect x="3" y="106" width="5" height="3" fill="#804020" rx="1"/><rect x="12" y="106" width="5" height="3" fill="#804020" rx="1"/>
+    </g>
+  </g></g>
+</svg>
