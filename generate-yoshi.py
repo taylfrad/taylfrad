@@ -141,7 +141,8 @@ def generate(weeks, total):
         for i, d in enumerate(days) if d
     )
 
-    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {sw} {sh}" width="{sw}" height="{sh}">
+    bleed = 6
+    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -{bleed} {sw} {sh + bleed * 2}" width="{sw}" height="{sh + bleed * 2}">
   <style>
     {yoshi_kf}
     @keyframes bob {{
@@ -165,7 +166,7 @@ def generate(weeks, total):
     .tongue-wrap {{ animation: tongue-visible {DUR}s linear infinite; }}
   </style>
 
-  <rect width="{sw}" height="{sh}" fill="{BG}"/>
+  <rect x="0" y="-{bleed}" width="{sw}" height="{sh + bleed * 2}" fill="{BG}"/>
 
   <!-- Title -->
   <text x="{sw//2}" y="{GY-8}" font-family="'Press Start 2P',monospace" font-size="11" fill="#30A230" text-anchor="middle" opacity=".8">{total} contributions</text>

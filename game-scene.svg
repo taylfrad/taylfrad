@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 140" width="800" height="140">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -6 800 152" width="800" height="152">
   <defs>
     <!-- COIN — SMW sprite (PNG) -->
     <symbol id="coin" viewBox="0 0 84 96">
@@ -53,7 +53,7 @@
     .ljs{animation:mario-jump-show 10s step-end 2s infinite backwards}
     .gw{animation:goomba-walk 3s ease-in-out infinite}
   </style>
-  <rect width="800" height="140" fill="#050c21"/>
+  <rect x="0" y="-6" width="800" height="152" fill="#050c21"/>
 
   <!-- ============ TECH BLOCKS WITH REAL LOGOS ============ -->
   <g transform="translate(43,0)">
