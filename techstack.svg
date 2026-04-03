@@ -1,61 +1,78 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 55" width="800" height="55">
+  <defs>
+    <symbol id="qb" viewBox="0 0 28 28">
+      <rect width="28" height="28" fill="#000" rx="2"/>
+      <rect x="1" y="1" width="26" height="26" fill="#F0C800" rx="1"/>
+      <rect x="2" y="2" width="24" height="24" fill="#E8B800" rx="1"/>
+      <rect x="1" y="1" width="26" height="2" fill="#F8E060"/>
+      <rect x="1" y="1" width="2" height="26" fill="#F8E060"/>
+      <rect x="9" y="6" width="10" height="3" fill="#fff"/>
+      <rect x="16" y="6" width="3" height="8" fill="#fff"/>
+      <rect x="11" y="12" width="8" height="3" fill="#fff"/>
+      <rect x="11" y="12" width="3" height="6" fill="#fff"/>
+      <rect x="11" y="20" width="3" height="3" fill="#fff"/>
+      <circle cx="5" cy="5" r="2" fill="#A08000"/><circle cx="23" cy="5" r="2" fill="#A08000"/>
+      <circle cx="5" cy="23" r="2" fill="#A08000"/><circle cx="23" cy="23" r="2" fill="#A08000"/>
+    </symbol>
+    <symbol id="coin" viewBox="0 0 12 14">
+      <rect x="4" y="0" width="4" height="2" fill="#000"/>
+      <rect x="2" y="2" width="2" height="2" fill="#000"/><rect x="8" y="2" width="2" height="2" fill="#000"/>
+      <rect x="0" y="4" width="2" height="6" fill="#000"/><rect x="10" y="4" width="2" height="6" fill="#000"/>
+      <rect x="2" y="10" width="2" height="2" fill="#000"/><rect x="8" y="10" width="2" height="2" fill="#000"/>
+      <rect x="4" y="12" width="4" height="2" fill="#000"/>
+      <rect x="4" y="2" width="4" height="10" fill="#E8A800"/>
+      <rect x="2" y="4" width="8" height="6" fill="#E8A800"/>
+      <rect x="2" y="4" width="2" height="6" fill="#fff"/>
+      <rect x="4" y="2" width="2" height="2" fill="#fff"/>
+      <rect x="4" y="4" width="2" height="6" fill="#F8D830"/>
+    </symbol>
+  </defs>
   <style>
-    @keyframes bump { 0%,85%,100% { transform: translateY(0); } 90% { transform: translateY(-4px); } 95% { transform: translateY(-1px); } }
-    @keyframes cs { 0%,100% { transform: scaleX(1); } 50% { transform: scaleX(0.15); } }
+    @keyframes bump{0%,85%,100%{transform:translateY(0)}90%{transform:translateY(-5px)}95%{transform:translateY(-1px)}}
+    @keyframes cs{0%,100%{transform:scaleX(1)}50%{transform:scaleX(.15)}}
+    @keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
     .b0{animation:bump 4.5s ease-in-out infinite 0s}.b1{animation:bump 4.5s ease-in-out infinite .7s}.b2{animation:bump 4.5s ease-in-out infinite 1.4s}.b3{animation:bump 4.5s ease-in-out infinite 2.1s}.b4{animation:bump 4.5s ease-in-out infinite 2.8s}.b5{animation:bump 4.5s ease-in-out infinite 3.5s}
     .c0{animation:cs 2s ease-in-out infinite .2s}.c1{animation:cs 2s ease-in-out infinite .6s}.c2{animation:cs 2s ease-in-out infinite 1s}.c3{animation:cs 2s ease-in-out infinite 1.4s}.c4{animation:cs 2s ease-in-out infinite 1.8s}
+    .f0{animation:fl 2.5s ease-in-out infinite .1s}.f1{animation:fl 2.5s ease-in-out infinite .5s}.f2{animation:fl 2.5s ease-in-out infinite .9s}.f3{animation:fl 2.5s ease-in-out infinite 1.3s}.f4{animation:fl 2.5s ease-in-out infinite 1.7s}
   </style>
-  <rect width="800" height="55" fill="#0d1117"/>
+  <rect width="800" height="55" fill="#13111C"/>
 
   <!-- React -->
-  <g class="b0" transform-origin="67 28">
-    <rect x="30" y="14" width="74" height="28" rx="2" fill="#E8C547" stroke="#C4722A" stroke-width="1.2"/>
-    <text x="67" y="33" font-family="'Courier New',monospace" font-size="11" font-weight="bold" fill="#61DAFB" text-anchor="middle">React</text>
-    <circle cx="35" cy="19" r="1.2" fill="#C4722A" opacity="0.35"/><circle cx="99" cy="19" r="1.2" fill="#C4722A" opacity="0.35"/>
-  </g>
+  <g class="b0" transform-origin="67 28"><use href="#qb" x="30" y="12" width="28" height="28"/></g>
+  <text x="55" y="30" font-family="'Courier New',monospace" font-size="8" font-weight="bold" fill="#61DAFB" opacity=".9">React</text>
 
-  <g class="c0" transform-origin="120 28"><ellipse cx="120" cy="28" rx="5" ry="5" fill="#E8C547" stroke="#C4722A" stroke-width="0.8"/></g>
+  <!-- Coin -->
+  <g class="f0" transform-origin="118 27"><g class="c0" transform-origin="118 27"><use href="#coin" x="112" y="20" width="12" height="14"/></g></g>
 
   <!-- Next.js -->
-  <g class="b1" transform-origin="172 28">
-    <rect x="135" y="14" width="74" height="28" rx="2" fill="#E8C547" stroke="#C4722A" stroke-width="1.2"/>
-    <text x="172" y="33" font-family="'Courier New',monospace" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">Next.js</text>
-    <circle cx="140" cy="19" r="1.2" fill="#C4722A" opacity="0.35"/><circle cx="204" cy="19" r="1.2" fill="#C4722A" opacity="0.35"/>
-  </g>
+  <g class="b1" transform-origin="172 28"><use href="#qb" x="140" y="12" width="28" height="28"/></g>
+  <text x="148" y="30" font-family="'Courier New',monospace" font-size="8" font-weight="bold" fill="#fff" opacity=".9">Next.js</text>
 
-  <g class="c1" transform-origin="225 28"><ellipse cx="225" cy="28" rx="5" ry="5" fill="#E8C547" stroke="#C4722A" stroke-width="0.8"/></g>
+  <!-- Coin -->
+  <g class="f1" transform-origin="228 27"><g class="c1" transform-origin="228 27"><use href="#coin" x="222" y="20" width="12" height="14"/></g></g>
 
   <!-- TypeScript -->
-  <g class="b2" transform-origin="295 28">
-    <rect x="248" y="14" width="94" height="28" rx="2" fill="#E8C547" stroke="#C4722A" stroke-width="1.2"/>
-    <text x="295" y="33" font-family="'Courier New',monospace" font-size="11" font-weight="bold" fill="#3178C6" text-anchor="middle">TypeScript</text>
-    <circle cx="253" cy="19" r="1.2" fill="#C4722A" opacity="0.35"/><circle cx="337" cy="19" r="1.2" fill="#C4722A" opacity="0.35"/>
-  </g>
+  <g class="b2" transform-origin="295 28"><use href="#qb" x="260" y="12" width="28" height="28"/></g>
+  <text x="262" y="30" font-family="'Courier New',monospace" font-size="7" font-weight="bold" fill="#60A5FA" opacity=".9">TypeScript</text>
 
-  <g class="c2" transform-origin="360 28"><ellipse cx="360" cy="28" rx="5" ry="5" fill="#E8C547" stroke="#C4722A" stroke-width="0.8"/></g>
+  <!-- Coin -->
+  <g class="f2" transform-origin="348 27"><g class="c2" transform-origin="348 27"><use href="#coin" x="342" y="20" width="12" height="14"/></g></g>
 
   <!-- Tailwind -->
-  <g class="b3" transform-origin="425 28">
-    <rect x="383" y="14" width="84" height="28" rx="2" fill="#E8C547" stroke="#C4722A" stroke-width="1.2"/>
-    <text x="425" y="33" font-family="'Courier New',monospace" font-size="11" font-weight="bold" fill="#06B6D4" text-anchor="middle">Tailwind</text>
-    <circle cx="388" cy="19" r="1.2" fill="#C4722A" opacity="0.35"/><circle cx="462" cy="19" r="1.2" fill="#C4722A" opacity="0.35"/>
-  </g>
+  <g class="b3" transform-origin="410 28"><use href="#qb" x="380" y="12" width="28" height="28"/></g>
+  <text x="383" y="30" font-family="'Courier New',monospace" font-size="7.5" font-weight="bold" fill="#38BDF8" opacity=".9">Tailwind</text>
 
-  <g class="c3" transform-origin="484 28"><ellipse cx="484" cy="28" rx="5" ry="5" fill="#E8C547" stroke="#C4722A" stroke-width="0.8"/></g>
+  <!-- Coin -->
+  <g class="f3" transform-origin="468 27"><g class="c3" transform-origin="468 27"><use href="#coin" x="462" y="20" width="12" height="14"/></g></g>
 
   <!-- Three.js -->
-  <g class="b4" transform-origin="548 28">
-    <rect x="506" y="14" width="84" height="28" rx="2" fill="#E8C547" stroke="#C4722A" stroke-width="1.2"/>
-    <text x="548" y="33" font-family="'Courier New',monospace" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">Three.js</text>
-    <circle cx="511" cy="19" r="1.2" fill="#C4722A" opacity="0.35"/><circle cx="585" cy="19" r="1.2" fill="#C4722A" opacity="0.35"/>
-  </g>
+  <g class="b4" transform-origin="530 28"><use href="#qb" x="500" y="12" width="28" height="28"/></g>
+  <text x="503" y="30" font-family="'Courier New',monospace" font-size="7.5" font-weight="bold" fill="#C4B5FD" opacity=".9">Three.js</text>
 
-  <g class="c4" transform-origin="607 28"><ellipse cx="607" cy="28" rx="5" ry="5" fill="#E8C547" stroke="#C4722A" stroke-width="0.8"/></g>
+  <!-- Coin -->
+  <g class="f4" transform-origin="588 27"><g class="c4" transform-origin="588 27"><use href="#coin" x="582" y="20" width="12" height="14"/></g></g>
 
   <!-- Azure -->
-  <g class="b5" transform-origin="672 28">
-    <rect x="635" y="14" width="74" height="28" rx="2" fill="#E8C547" stroke="#C4722A" stroke-width="1.2"/>
-    <text x="672" y="33" font-family="'Courier New',monospace" font-size="11" font-weight="bold" fill="#0078D4" text-anchor="middle">Azure</text>
-    <circle cx="640" cy="19" r="1.2" fill="#C4722A" opacity="0.35"/><circle cx="704" cy="19" r="1.2" fill="#C4722A" opacity="0.35"/>
-  </g>
+  <g class="b5" transform-origin="650 28"><use href="#qb" x="620" y="12" width="28" height="28"/></g>
+  <text x="630" y="30" font-family="'Courier New',monospace" font-size="8" font-weight="bold" fill="#60A5FA" opacity=".9">Azure</text>
 </svg>
