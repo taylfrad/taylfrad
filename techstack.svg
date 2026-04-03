@@ -19,14 +19,21 @@
     @keyframes pulse5 { 0%,100% { opacity: 0.7; transform: scale(1); } 50% { opacity: 1; transform: scale(1.08); } }
     @keyframes pulse6 { 0%,100% { opacity: 0.7; transform: scale(1); } 50% { opacity: 1; transform: scale(1.08); } }
     @keyframes underline { 0%,100% { opacity: 0.2; } 50% { opacity: 0.8; } }
+    @keyframes dotpulse { 0%,100% { opacity: 0.2; r: 1.5; } 50% { opacity: 0.8; r: 2.5; } }
 
     .t1 { animation: pulse1 3s ease-in-out infinite 0s; transform-origin: 100px 45px; }
     .t2 { animation: pulse2 3s ease-in-out infinite 0.4s; transform-origin: 237px 45px; }
     .t3 { animation: pulse3 3s ease-in-out infinite 0.8s; transform-origin: 373px 45px; }
     .t4 { animation: pulse4 3s ease-in-out infinite 1.2s; transform-origin: 510px 45px; }
-    .t5 { animation: pulse5 3s ease-in-out infinite 1.6s; transform-origin: 647px 45px; }
+    .t5 { animation: pulse5 3s ease-in-out infinite 1.6s; transform-origin: 640px 45px; }
     .t6 { animation: pulse6 3s ease-in-out infinite 2.0s; transform-origin: 750px 45px; }
     .uline { animation: underline 3s ease-in-out infinite; }
+    .dot { animation: dotpulse 2.5s ease-in-out infinite; }
+    .dot1 { animation-delay: 0.2s; }
+    .dot2 { animation-delay: 0.6s; }
+    .dot3 { animation-delay: 1.0s; }
+    .dot4 { animation-delay: 1.4s; }
+    .dot5 { animation-delay: 1.8s; }
   </style>
 
   <rect width="820" height="90" fill="url(#bg)" rx="10" />
@@ -69,10 +76,10 @@
     <line class="uline" x1="722" y1="50" x2="778" y2="50" stroke="#0078D4" stroke-width="2" opacity="0.4" />
   </g>
 
-  <!-- Separator dots -->
-  <circle cx="168" cy="40" r="2" fill="#F97066" opacity="0.4" />
-  <circle cx="305" cy="40" r="2" fill="#F97066" opacity="0.4" />
-  <circle cx="441" cy="40" r="2" fill="#F97066" opacity="0.4" />
-  <circle cx="575" cy="40" r="2" fill="#F97066" opacity="0.4" />
-  <circle cx="695" cy="40" r="2" fill="#F97066" opacity="0.4" />
+  <!-- Animated separator dots — alternating seafoam and golden -->
+  <circle class="dot dot1" cx="168" cy="40" r="2" fill="#2DD4A8" />
+  <circle class="dot dot2" cx="305" cy="40" r="2" fill="#E8C547" />
+  <circle class="dot dot3" cx="441" cy="40" r="2" fill="#2DD4A8" />
+  <circle class="dot dot4" cx="575" cy="40" r="2" fill="#E8C547" />
+  <circle class="dot dot5" cx="695" cy="40" r="2" fill="#2DD4A8" />
 </svg>
