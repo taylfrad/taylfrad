@@ -1,202 +1,72 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 150" width="800" height="150">
   <style>
-    @keyframes cloud-drift { 0% { transform: translateX(0); } 100% { transform: translateX(-800px); } }
-    @keyframes cloud-drift2 { 0% { transform: translateX(0); } 100% { transform: translateX(-800px); } }
-    @keyframes coin-spin { 0%,100% { transform: scaleX(1); } 25% { transform: scaleX(0.2); } 50% { transform: scaleX(1); } 75% { transform: scaleX(0.2); } }
-    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
-    @keyframes block-bump { 0%,90%,100% { transform: translateY(0); } 95% { transform: translateY(-5px); } }
-    @keyframes sparkle { 0%,100% { opacity: 0; } 50% { opacity: 1; } }
+    @keyframes cloud { 0% { transform: translateX(0); } 100% { transform: translateX(-820px); } }
+    @keyframes coin-spin { 0%,100% { transform: scaleX(1); } 50% { transform: scaleX(0.15); } }
+    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+    @keyframes bump { 0%,88%,100% { transform: translateY(0); } 92% { transform: translateY(-5px); } 96% { transform: translateY(-1px); } }
+    @keyframes star { 0%,100% { opacity: 0.1; } 50% { opacity: 0.5; } }
     @keyframes blink { 0%,49% { opacity: 1; } 50%,100% { opacity: 0; } }
-    @keyframes star-pulse { 0%,100% { opacity: 0.15; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.3); } }
-
-    .cloud1 { animation: cloud-drift 60s linear infinite; }
-    .cloud2 { animation: cloud-drift2 45s linear infinite; }
-    .coin { animation: coin-spin 2s ease-in-out infinite; }
-    .coin-d1 { animation-delay: 0.5s; }
-    .coin-d2 { animation-delay: 1.0s; }
-    .coin-d3 { animation-delay: 1.5s; }
-    .float { animation: float 3s ease-in-out infinite; }
-    .float-d1 { animation-delay: 0.4s; }
-    .float-d2 { animation-delay: 0.8s; }
-    .block-b { animation: block-bump 6s ease-in-out infinite; }
-    .block-b1 { animation-delay: 2s; }
-    .block-b2 { animation-delay: 4s; }
-    .sparkle { animation: sparkle 1.5s ease-in-out infinite; }
-    .sp-d1 { animation-delay: 0.5s; }
-    .sp-d2 { animation-delay: 1s; }
-    .blink { animation: blink 1s step-end infinite; }
-    .star-p { animation: star-pulse 3s ease-in-out infinite; }
-    .star-p1 { animation-delay: 1s; }
-    .star-p2 { animation-delay: 2s; }
+    .cl { animation: cloud 50s linear infinite; }
+    .fl { animation: float 3s ease-in-out infinite; }
+    .cs { animation: coin-spin 2s ease-in-out infinite; }
+    .bm { animation: bump 5s ease-in-out infinite; }
+    .bm1 { animation-delay: 2s; }
+    .st { animation: star 4s ease-in-out infinite; }
+    .st1 { animation-delay: 1.5s; }
+    .st2 { animation-delay: 3s; }
+    .bk { animation: blink 1s step-end infinite; }
   </style>
 
-  <!-- Sky background -->
-  <rect width="800" height="200" fill="#0d1117" />
+  <rect width="800" height="150" fill="#0d1117"/>
 
-  <!-- Stars in sky -->
-  <circle class="star-p" cx="50" cy="20" r="1.5" fill="#ffffff" />
-  <circle class="star-p1" cx="180" cy="12" r="1" fill="#ffffff" />
-  <circle class="star-p2" cx="350" cy="8" r="1.5" fill="#ffffff" />
-  <circle class="star-p" cx="500" cy="18" r="1" fill="#ffffff" />
-  <circle class="star-p1" cx="620" cy="10" r="1.5" fill="#ffffff" />
-  <circle class="star-p2" cx="750" cy="22" r="1" fill="#ffffff" />
-  <circle class="star-p" cx="280" cy="25" r="0.8" fill="#ffffff" />
-  <circle class="star-p1" cx="700" cy="30" r="0.8" fill="#ffffff" />
+  <!-- Stars -->
+  <circle class="st" cx="60" cy="15" r="1.2" fill="#fff"/>
+  <circle class="st1" cx="200" cy="10" r="1" fill="#fff"/>
+  <circle class="st2" cx="370" cy="8" r="1.3" fill="#fff"/>
+  <circle class="st" cx="530" cy="14" r="0.9" fill="#fff"/>
+  <circle class="st1" cx="650" cy="6" r="1.1" fill="#fff"/>
+  <circle class="st2" cx="760" cy="18" r="1" fill="#fff"/>
 
-  <!-- Pixel clouds — layer 1 (slow, back) -->
-  <g class="cloud2" opacity="0.15">
-    <g>
-      <rect x="200" y="28" width="8" height="8" fill="#7FDBCA" />
-      <rect x="208" y="20" width="8" height="16" fill="#7FDBCA" />
-      <rect x="216" y="16" width="16" height="20" fill="#7FDBCA" />
-      <rect x="232" y="20" width="8" height="16" fill="#7FDBCA" />
-      <rect x="240" y="28" width="8" height="8" fill="#7FDBCA" />
-    </g>
-    <g>
-      <rect x="900" y="28" width="8" height="8" fill="#7FDBCA" />
-      <rect x="908" y="20" width="8" height="16" fill="#7FDBCA" />
-      <rect x="916" y="16" width="16" height="20" fill="#7FDBCA" />
-      <rect x="932" y="20" width="8" height="16" fill="#7FDBCA" />
-      <rect x="940" y="28" width="8" height="8" fill="#7FDBCA" />
-    </g>
+  <!-- Clouds -->
+  <g class="cl" opacity="0.12">
+    <rect x="150" y="22" width="8" height="8" fill="#7FDBCA"/><rect x="158" y="16" width="8" height="14" fill="#7FDBCA"/><rect x="166" y="12" width="14" height="18" fill="#7FDBCA"/><rect x="180" y="16" width="8" height="14" fill="#7FDBCA"/><rect x="188" y="22" width="8" height="8" fill="#7FDBCA"/>
+    <rect x="970" y="22" width="8" height="8" fill="#7FDBCA"/><rect x="978" y="16" width="8" height="14" fill="#7FDBCA"/><rect x="986" y="12" width="14" height="18" fill="#7FDBCA"/><rect x="1000" y="16" width="8" height="14" fill="#7FDBCA"/><rect x="1008" y="22" width="8" height="8" fill="#7FDBCA"/>
+  </g>
+  <g class="cl" opacity="0.08" style="animation-duration:70s">
+    <rect x="550" y="30" width="10" height="10" fill="#fff"/><rect x="560" y="22" width="10" height="18" fill="#fff"/><rect x="570" y="18" width="16" height="22" fill="#fff"/><rect x="586" y="22" width="10" height="18" fill="#fff"/><rect x="596" y="30" width="10" height="10" fill="#fff"/>
+    <rect x="1370" y="30" width="10" height="10" fill="#fff"/><rect x="1380" y="22" width="10" height="18" fill="#fff"/><rect x="1390" y="18" width="16" height="22" fill="#fff"/><rect x="1406" y="22" width="10" height="18" fill="#fff"/><rect x="1416" y="30" width="10" height="10" fill="#fff"/>
   </g>
 
-  <!-- Pixel clouds — layer 2 (faster, front) -->
-  <g class="cloud1" opacity="0.1">
-    <g>
-      <rect x="550" y="38" width="10" height="10" fill="#ffffff" />
-      <rect x="560" y="28" width="10" height="20" fill="#ffffff" />
-      <rect x="570" y="24" width="20" height="24" fill="#ffffff" />
-      <rect x="590" y="28" width="10" height="20" fill="#ffffff" />
-      <rect x="600" y="38" width="10" height="10" fill="#ffffff" />
-    </g>
-    <g>
-      <rect x="1350" y="38" width="10" height="10" fill="#ffffff" />
-      <rect x="1360" y="28" width="10" height="20" fill="#ffffff" />
-      <rect x="1370" y="24" width="20" height="24" fill="#ffffff" />
-      <rect x="1390" y="28" width="10" height="20" fill="#ffffff" />
-      <rect x="1400" y="38" width="10" height="10" fill="#ffffff" />
-    </g>
+  <!-- Question block left -->
+  <g class="bm" transform-origin="130 52">
+    <rect x="116" y="42" width="28" height="28" rx="2" fill="#E8C547" stroke="#C4722A" stroke-width="1.5"/>
+    <text x="130" y="63" font-family="monospace" font-size="16" font-weight="bold" fill="#C4722A" text-anchor="middle">?</text>
+    <circle cx="120" cy="46" r="1.3" fill="#C4722A" opacity="0.4"/><circle cx="140" cy="46" r="1.3" fill="#C4722A" opacity="0.4"/>
+    <circle cx="120" cy="66" r="1.3" fill="#C4722A" opacity="0.4"/><circle cx="140" cy="66" r="1.3" fill="#C4722A" opacity="0.4"/>
   </g>
+  <g class="fl" transform-origin="130 28"><g class="cs" transform-origin="130 28"><ellipse cx="130" cy="28" rx="6" ry="6" fill="#E8C547" stroke="#C4722A" stroke-width="1"/></g></g>
 
-  <!-- Left pipe -->
-  <g>
-    <rect x="30" y="100" width="50" height="14" rx="2" fill="#2DD4A8" stroke="#1a9e7a" stroke-width="1.5" />
-    <rect x="35" y="114" width="40" height="66" fill="#2DD4A8" stroke="#1a9e7a" stroke-width="1.5" />
-    <rect x="40" y="102" width="7" height="10" fill="#7FDBCA" opacity="0.4" rx="1" />
-    <rect x="40" y="116" width="7" height="60" fill="#7FDBCA" opacity="0.25" rx="1" />
+  <!-- Question block right -->
+  <g class="bm bm1" transform-origin="670 52">
+    <rect x="656" y="42" width="28" height="28" rx="2" fill="#E8C547" stroke="#C4722A" stroke-width="1.5"/>
+    <text x="670" y="63" font-family="monospace" font-size="16" font-weight="bold" fill="#C4722A" text-anchor="middle">?</text>
+    <circle cx="660" cy="46" r="1.3" fill="#C4722A" opacity="0.4"/><circle cx="680" cy="46" r="1.3" fill="#C4722A" opacity="0.4"/>
+    <circle cx="660" cy="66" r="1.3" fill="#C4722A" opacity="0.4"/><circle cx="680" cy="66" r="1.3" fill="#C4722A" opacity="0.4"/>
   </g>
+  <g class="fl" transform-origin="670 28" style="animation-delay:0.5s"><g class="cs" transform-origin="670 28" style="animation-delay:0.7s"><ellipse cx="670" cy="28" rx="6" ry="6" fill="#E8C547" stroke="#C4722A" stroke-width="1"/></g></g>
 
-  <!-- Right pipe -->
-  <g>
-    <rect x="720" y="100" width="50" height="14" rx="2" fill="#2DD4A8" stroke="#1a9e7a" stroke-width="1.5" />
-    <rect x="725" y="114" width="40" height="66" fill="#2DD4A8" stroke="#1a9e7a" stroke-width="1.5" />
-    <rect x="730" y="102" width="7" height="10" fill="#7FDBCA" opacity="0.4" rx="1" />
-    <rect x="730" y="116" width="7" height="60" fill="#7FDBCA" opacity="0.25" rx="1" />
-  </g>
+  <!-- Pipes — shorter, tucked to edges -->
+  <rect x="20" y="80" width="40" height="11" rx="2" fill="#2DD4A8" stroke="#1a9e7a" stroke-width="1.2"/>
+  <rect x="24" y="91" width="32" height="59" fill="#2DD4A8" stroke="#1a9e7a" stroke-width="1.2"/>
+  <rect x="28" y="82" width="5" height="8" fill="#7FDBCA" opacity="0.35" rx="1"/>
 
-  <!-- Question block — left -->
-  <g class="block-b">
-    <rect x="120" y="55" width="28" height="28" rx="2" fill="#E8C547" stroke="#C4722A" stroke-width="1.5" />
-    <rect x="124" y="59" width="20" height="20" rx="1" fill="none" stroke="#C4722A" stroke-width="0.8" opacity="0.4" />
-    <text x="134" y="76" font-family="monospace" font-size="16" font-weight="bold" fill="#C4722A" text-anchor="middle">?</text>
-    <circle cx="126" cy="61" r="1.5" fill="#C4722A" opacity="0.5" />
-    <circle cx="142" cy="61" r="1.5" fill="#C4722A" opacity="0.5" />
-    <circle cx="126" cy="77" r="1.5" fill="#C4722A" opacity="0.5" />
-    <circle cx="142" cy="77" r="1.5" fill="#C4722A" opacity="0.5" />
-  </g>
+  <rect x="740" y="80" width="40" height="11" rx="2" fill="#2DD4A8" stroke="#1a9e7a" stroke-width="1.2"/>
+  <rect x="744" y="91" width="32" height="59" fill="#2DD4A8" stroke="#1a9e7a" stroke-width="1.2"/>
+  <rect x="748" y="82" width="5" height="8" fill="#7FDBCA" opacity="0.35" rx="1"/>
 
-  <!-- Question block — right -->
-  <g class="block-b block-b1">
-    <rect x="652" y="55" width="28" height="28" rx="2" fill="#E8C547" stroke="#C4722A" stroke-width="1.5" />
-    <rect x="656" y="59" width="20" height="20" rx="1" fill="none" stroke="#C4722A" stroke-width="0.8" opacity="0.4" />
-    <text x="666" y="76" font-family="monospace" font-size="16" font-weight="bold" fill="#C4722A" text-anchor="middle">?</text>
-    <circle cx="658" cy="61" r="1.5" fill="#C4722A" opacity="0.5" />
-    <circle cx="674" cy="61" r="1.5" fill="#C4722A" opacity="0.5" />
-    <circle cx="658" cy="77" r="1.5" fill="#C4722A" opacity="0.5" />
-    <circle cx="674" cy="77" r="1.5" fill="#C4722A" opacity="0.5" />
-  </g>
-
-  <!-- Brick blocks flanking question blocks -->
-  <rect x="92" y="55" width="28" height="28" rx="1" fill="#8B4513" stroke="#6B3410" stroke-width="1" opacity="0.6" />
-  <line x1="106" y1="55" x2="106" y2="83" stroke="#6B3410" stroke-width="0.5" opacity="0.4" />
-  <line x1="92" y1="69" x2="120" y2="69" stroke="#6B3410" stroke-width="0.5" opacity="0.4" />
-
-  <rect x="680" y="55" width="28" height="28" rx="1" fill="#8B4513" stroke="#6B3410" stroke-width="1" opacity="0.6" />
-  <line x1="694" y1="55" x2="694" y2="83" stroke="#6B3410" stroke-width="0.5" opacity="0.4" />
-  <line x1="680" y1="69" x2="708" y2="69" stroke="#6B3410" stroke-width="0.5" opacity="0.4" />
-
-  <!-- Floating coins -->
-  <g class="float" transform-origin="134 40">
-    <g class="coin" transform-origin="134 40">
-      <ellipse cx="134" cy="40" rx="7" ry="7" fill="#E8C547" stroke="#C4722A" stroke-width="1" />
-      <text x="134" y="44" font-family="monospace" font-size="8" font-weight="bold" fill="#C4722A" text-anchor="middle">$</text>
-    </g>
-  </g>
-  <g class="float float-d1" transform-origin="666 40">
-    <g class="coin coin-d1" transform-origin="666 40">
-      <ellipse cx="666" cy="40" rx="7" ry="7" fill="#E8C547" stroke="#C4722A" stroke-width="1" />
-      <text x="666" y="44" font-family="monospace" font-size="8" font-weight="bold" fill="#C4722A" text-anchor="middle">$</text>
-    </g>
-  </g>
-
-  <!-- Sparkles -->
-  <text class="sparkle" x="155" y="50" font-size="7" fill="#E8C547">✦</text>
-  <text class="sparkle sp-d1" x="645" y="45" font-size="7" fill="#E8C547">✦</text>
-
-  <!-- === CENTER CONTENT === -->
-
-  <!-- Name -->
-  <text x="400" y="85" font-family="'Press Start 2P', 'Courier New', monospace" font-size="22" fill="#ffffff" text-anchor="middle" letter-spacing="2">Taylor Fradella</text>
-
-  <!-- Code subtitle -->
-  <text x="400" y="115" font-family="JetBrains Mono, monospace" font-size="11" fill="#D1D5DB" text-anchor="middle" letter-spacing="1">const passion = "design" + "engineering"</text>
-  <rect class="blink" x="519" y="104" width="7" height="12" fill="#E8C547" opacity="0.8" />
-
-  <!-- Bottom subtitle -->
-  <text x="400" y="140" font-family="JetBrains Mono, monospace" font-size="9" fill="#6B7280" text-anchor="middle" letter-spacing="1">frontend · full-stack · mobile · accessible</text>
-
-  <!-- Ground blocks -->
-  <g fill="#8B4513" opacity="0.8">
-    <rect x="0" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
-    <rect x="20" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
-    <rect x="40" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
-    <rect x="60" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
-    <rect x="80" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
-    <rect x="100" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
-    <rect x="120" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
-    <rect x="140" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
-    <rect x="160" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
-    <rect x="180" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
-    <rect x="200" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
-    <rect x="220" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
-    <rect x="240" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
-    <rect x="260" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
-    <rect x="280" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
-    <rect x="300" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
-    <rect x="320" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
-    <rect x="340" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
-    <rect x="360" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
-    <rect x="380" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
-    <rect x="400" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
-    <rect x="420" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
-    <rect x="440" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
-    <rect x="460" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
-    <rect x="480" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
-    <rect x="500" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
-    <rect x="520" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
-    <rect x="540" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
-    <rect x="560" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
-    <rect x="580" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
-    <rect x="600" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
-    <rect x="620" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
-    <rect x="640" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
-    <rect x="660" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
-    <rect x="680" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
-    <rect x="700" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
-    <rect x="720" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
-    <rect x="740" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
-    <rect x="760" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
-    <rect x="780" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
-  </g>
+  <!-- Name + subtitle -->
+  <text x="400" y="72" font-family="'Press Start 2P','Courier New',monospace" font-size="20" fill="#fff" text-anchor="middle" letter-spacing="2">Taylor Fradella</text>
+  <text x="400" y="100" font-family="JetBrains Mono,monospace" font-size="11" fill="#D1D5DB" text-anchor="middle" letter-spacing="1">const passion = "design" + "engineering"</text>
+  <rect class="bk" x="518" y="89" width="7" height="12" fill="#E8C547" opacity="0.8"/>
+  <text x="400" y="125" font-family="JetBrains Mono,monospace" font-size="9" fill="#6B7280" text-anchor="middle" letter-spacing="1">frontend · full-stack · mobile · accessible</text>
 </svg>
