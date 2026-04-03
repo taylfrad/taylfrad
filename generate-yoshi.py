@@ -1,312 +1,252 @@
 #!/usr/bin/env python3
 """
-Generate a Mario/Yoshi-themed contribution grid SVG.
-Mario rides Yoshi across the contribution grid. Yoshi's tongue
-extends to eat each contribution cell.
+Generate Yoshi contribution grid: Yoshi enters, eats commits with tongue,
+exits screen, cells stay eaten, then reset with sparkle animation.
 """
 
-import json
-import os
-import sys
-import urllib.request
-import urllib.error
+import json, os, sys, urllib.request, urllib.error
 
 USERNAME = os.environ.get("GITHUB_USER", "taylfrad")
 TOKEN = os.environ.get("GITHUB_TOKEN", "")
 OUTPUT = os.environ.get("OUTPUT_PATH", "dist/yoshi-contrib.svg")
 
-BG_COLOR = "#050c21"
-EMPTY_COLOR = "#0a1628"
-LEVEL_COLORS = ["#0a1628", "#1a3a2a", "#30A230", "#58D858", "#FFD700"]
+BG = "#050c21"
+EMPTY = "#0a1628"
+COLORS = ["#0a1628", "#1a3a2a", "#30A230", "#58D858", "#FFD700"]
 
-CELL_SIZE = 11
-CELL_GAP = 3
-CELL_TOTAL = CELL_SIZE + CELL_GAP
-GRID_X = 40
-GRID_Y = 25
-ANIM_DURATION = 20
-
-
-def fetch_contributions():
-    query = """
-    query($username: String!) {
-      user(login: $username) {
-        contributionsCollection {
-          contributionCalendar {
-            totalContributions
-            weeks {
-              contributionDays {
-                contributionCount
-                date
-                weekday
-              }
-            }
-          }
-        }
-      }
-    }
-    """
-    payload = json.dumps({"query": query, "variables": {"username": USERNAME}}).encode()
-    req = urllib.request.Request(
-        "https://api.github.com/graphql",
-        data=payload,
-        headers={
-            "Authorization": f"Bearer {TOKEN}",
-            "Content-Type": "application/json",
-            "User-Agent": "yoshi-contrib-generator",
-        },
-    )
-    try:
-        with urllib.request.urlopen(req) as resp:
-            data = json.loads(resp.read().decode())
-    except urllib.error.URLError as e:
-        print(f"Error fetching contributions: {e}", file=sys.stderr)
-        sys.exit(1)
-
-    cal = data["data"]["user"]["contributionsCollection"]["contributionCalendar"]
-    return cal["weeks"], cal["totalContributions"]
+CELL = 11
+GAP = 3
+STEP = CELL + GAP
+GX, GY = 40, 25
+DUR = 25  # total animation seconds
 
 
-def contribution_level(count):
-    if count == 0:
-        return 0
-    elif count <= 3:
-        return 1
-    elif count <= 6:
-        return 2
-    elif count <= 9:
-        return 3
-    else:
-        return 4
+def fetch():
+    q = '{"query":"query{user(login:\\"' + USERNAME + '\\"){contributionsCollection{contributionCalendar{totalContributions weeks{contributionDays{contributionCount weekday}}}}}}"}'
+    req = urllib.request.Request("https://api.github.com/graphql", q.encode(),
+        {"Authorization": f"Bearer {TOKEN}", "Content-Type": "application/json", "User-Agent": "yoshi"})
+    with urllib.request.urlopen(req) as r:
+        d = json.loads(r.read())
+    c = d["data"]["user"]["contributionsCollection"]["contributionCalendar"]
+    return c["weeks"], c["totalContributions"]
 
 
-def build_mario_yoshi_sprite():
-    """
-    Build pixel art of Mario riding Yoshi (facing right).
-    Based on Super Mario World SNES sprite.
-    Grid: ~20 wide x 22 tall, 2px per pixel = 40x44 SVG units.
-    """
+def level(n):
+    return 0 if n == 0 else 1 if n <= 3 else 2 if n <= 6 else 3 if n <= 9 else 4
+
+
+def yoshi_sprite():
+    """Mario riding Yoshi, facing right. 2px per pixel."""
     p = 2
-    pixels = [
-        # === MARIO (on top) ===
-        # Hat
-        (8, 0, 5, 1, "#E02020"),
-        (7, 1, 7, 1, "#E02020"),
-        (6, 2, 8, 1, "#E02020"),
-        # Hair
-        (6, 3, 2, 1, "#804020"),
-        (5, 4, 2, 1, "#804020"),
-        # Face (golden skin)
-        (8, 3, 4, 1, "#E8A030"),
-        (7, 4, 5, 1, "#E8A030"),
-        (12, 3, 2, 1, "#E8A030"),
-        (12, 4, 2, 1, "#E8A030"),
-        # Eye
-        (11, 3, 1, 1, "#000"),
-        # Mustache
-        (10, 5, 4, 1, "#000"),
-        (8, 5, 2, 1, "#E8A030"),
-        # Cape (blue, behind)
-        (4, 5, 3, 3, "#0058F8"),
-        (3, 6, 2, 2, "#0058F8"),
-        # Shirt/body (red)
-        (7, 5, 3, 1, "#E02020"),
-        (6, 6, 5, 2, "#E02020"),
-        (5, 7, 2, 1, "#E02020"),
-        # Arms (skin)
-        (5, 6, 1, 1, "#E8A030"),
-        (11, 6, 2, 1, "#E8A030"),
-        # Mario's boots on Yoshi's sides
-        (5, 8, 2, 2, "#E02020"),
-        (11, 8, 2, 2, "#E02020"),
-
-        # === YOSHI (bottom) ===
-        # Head — round green dome extending forward
-        (12, 7, 4, 1, "#30A230"),
-        (11, 8, 6, 1, "#30A230"),
-        (11, 9, 7, 1, "#30A230"),
-        (12, 10, 6, 1, "#30A230"),
-        # Snout/nose (extends right)
-        (17, 8, 2, 1, "#30A230"),
-        (17, 9, 3, 1, "#30A230"),
-        (18, 10, 2, 1, "#30A230"),
-        # Eye (white + pupil)
-        (14, 7, 2, 2, "#fff"),
-        (15, 8, 1, 1, "#000"),
-        # Mouth line
-        (13, 11, 6, 1, "#30A230"),
-        (17, 11, 2, 1, "#fff"),  # lower jaw white
-        # Red crest on head
-        (12, 6, 2, 1, "#E84030"),
-        (13, 5, 1, 1, "#E84030"),
-
-        # Saddle (red, where Mario sits)
-        (7, 8, 4, 1, "#E84030"),
-        (6, 9, 6, 1, "#E84030"),
-
-        # Body (green)
-        (7, 9, 4, 1, "#30A230"),
-        (6, 10, 6, 2, "#30A230"),
-        (7, 12, 5, 1, "#30A230"),
-
-        # Belly (white)
-        (8, 11, 3, 1, "#fff"),
-        (8, 12, 3, 1, "#fff"),
-
-        # Tail
-        (5, 11, 2, 1, "#30A230"),
-        (4, 12, 2, 1, "#30A230"),
-
-        # Legs/boots (green with orange shoes)
-        (6, 13, 3, 2, "#30A230"),
-        (10, 13, 3, 2, "#30A230"),
-        (5, 15, 4, 1, "#E87020"),  # left boot
-        (10, 15, 4, 1, "#E87020"),  # right boot
+    px = [
+        # Mario hat
+        (8,0,5,1,"#E02020"),(7,1,7,1,"#E02020"),(6,2,8,1,"#E02020"),
+        # Mario hair/face
+        (6,3,2,1,"#804020"),(5,4,2,1,"#804020"),
+        (8,3,4,1,"#E8A030"),(7,4,5,1,"#E8A030"),(12,3,2,1,"#E8A030"),(12,4,2,1,"#E8A030"),
+        (11,3,1,1,"#000"),(10,5,4,1,"#000"),(8,5,2,1,"#E8A030"),
+        # Cape
+        (4,5,3,3,"#0058F8"),(3,6,2,2,"#0058F8"),
+        # Shirt
+        (7,5,3,1,"#E02020"),(6,6,5,2,"#E02020"),(5,7,2,1,"#E02020"),
+        (5,6,1,1,"#E8A030"),(11,6,2,1,"#E8A030"),
+        (5,8,2,2,"#E02020"),(11,8,2,2,"#E02020"),
+        # Yoshi head
+        (12,7,4,1,"#30A230"),(11,8,6,1,"#30A230"),(11,9,7,1,"#30A230"),(12,10,6,1,"#30A230"),
+        (17,8,2,1,"#30A230"),(17,9,3,1,"#30A230"),(18,10,2,1,"#30A230"),
+        (14,7,2,2,"#fff"),(15,8,1,1,"#000"),
+        (13,11,6,1,"#30A230"),(17,11,2,1,"#fff"),
+        (12,6,2,1,"#E84030"),(13,5,1,1,"#E84030"),
+        # Saddle
+        (7,8,4,1,"#E84030"),(6,9,6,1,"#E84030"),
+        # Body
+        (7,9,4,1,"#30A230"),(6,10,6,2,"#30A230"),(7,12,5,1,"#30A230"),
+        (8,11,3,1,"#fff"),(8,12,3,1,"#fff"),
+        (5,11,2,1,"#30A230"),(4,12,2,1,"#30A230"),
+        # Legs
+        (6,13,3,2,"#30A230"),(10,13,3,2,"#30A230"),
+        (5,15,4,1,"#E87020"),(10,15,4,1,"#E87020"),
     ]
-
-    rects = []
-    for x, y, w, h, color in pixels:
-        rects.append(
-            f'<rect x="{x * p}" y="{y * p}" width="{w * p}" height="{h * p}" fill="{color}"/>'
-        )
-
-    # Tongue — extends from mouth, animated separately
-    tongue = (
-        f'<g class="yoshi-tongue" transform-origin="{19 * p}px {11 * p}px">'
-        f'<rect x="{19 * p}" y="{10 * p}" width="0" height="{2 * p}" fill="#E84030" rx="1">'
-        f'<animate attributeName="width" values="0;30;30;0" keyTimes="0;0.3;0.6;1" dur="0.8s" repeatCount="indefinite"/>'
-        f'</rect>'
-        f'<circle cx="{19 * p}" cy="{11 * p}" r="0" fill="#E84030">'
-        f'<animate attributeName="cx" values="{19 * p};{19 * p + 30};{19 * p + 30};{19 * p}" keyTimes="0;0.3;0.6;1" dur="0.8s" repeatCount="indefinite"/>'
-        f'<animate attributeName="r" values="0;3;3;0" keyTimes="0;0.3;0.6;1" dur="0.8s" repeatCount="indefinite"/>'
-        f'</circle>'
-        f'</g>'
+    return "\n    ".join(
+        f'<rect x="{x*p}" y="{y*p}" width="{w*p}" height="{h*p}" fill="{c}"/>'
+        for x, y, w, h, c in px
     )
 
-    return "\n      ".join(rects) + "\n      " + tongue
 
+def generate(weeks, total):
+    nw = len(weeks)
+    gw = nw * STEP
+    sw = gw + GX + 20
+    sh = 7 * STEP + GY + 45
 
-def generate_svg(weeks, total):
-    num_weeks = len(weeks)
-    max_days = 7
+    sprite = yoshi_sprite()
 
-    grid_width = num_weeks * CELL_TOTAL
-    svg_width = grid_width + GRID_X + 20
-    svg_height = max_days * CELL_TOTAL + GRID_Y + 45
+    # Phase percentages
+    enter_end = 4       # Yoshi fully on screen
+    traverse_end = 72   # Yoshi reaches far right
+    exit_end = 78       # Yoshi off screen right
+    pause_end = 84      # cells stay eaten
+    reset_end = 96      # cells have reset
+    # 96-100: brief pause before loop
 
-    sprite_svg = build_mario_yoshi_sprite()
-    sprite_height = 34  # approximate SVG units
-    sprite_width = 42
-
-    # Build grid cells
     cells = []
-    for wi, week in enumerate(weeks):
-        for di, day in enumerate(week["contributionDays"]):
-            level = contribution_level(day["contributionCount"])
-            color = LEVEL_COLORS[level]
-            x = GRID_X + wi * CELL_TOTAL
-            y = GRID_Y + day["weekday"] * CELL_TOTAL
+    for wi, wk in enumerate(weeks):
+        for di, day in enumerate(wk["contributionDays"]):
+            lv = level(day["contributionCount"])
+            color = COLORS[lv]
+            x = GX + wi * STEP
+            y = GY + day["weekday"] * STEP
 
-            col_pct = wi / max(num_weeks - 1, 1)
-            # Yoshi reaches this column at this percentage of the animation
-            eat_delay = col_pct * 0.75 + 0.05  # 5% to 80% of duration
+            if lv == 0:
+                cells.append(f'<rect x="{x}" y="{y}" width="{CELL}" height="{CELL}" rx="2" fill="{EMPTY}"/>')
+                continue
 
-            if level > 0:
-                cells.append(
-                    f'<rect x="{x}" y="{y}" '
-                    f'width="{CELL_SIZE}" height="{CELL_SIZE}" rx="2" '
-                    f'fill="{color}" class="cell" '
-                    f'style="animation-delay:{eat_delay * ANIM_DURATION:.2f}s"/>'
-                )
-            else:
-                cells.append(
-                    f'<rect x="{x}" y="{y}" '
-                    f'width="{CELL_SIZE}" height="{CELL_SIZE}" rx="2" '
-                    f'fill="{EMPTY_COLOR}"/>'
-                )
+            # When does Yoshi eat this cell? Map column to enter_end..traverse_end
+            col_pct = wi / max(nw - 1, 1)
+            eat_pct = enter_end + col_pct * (traverse_end - enter_end)
+
+            # When does this cell reset? Map column to pause_end..reset_end
+            reset_pct = pause_end + col_pct * (reset_end - pause_end)
+
+            # Cell animation: visible -> eaten (pop+vanish) -> stays gone -> reset (pop back in)
+            eat1 = f"{eat_pct:.1f}"
+            eat2 = f"{eat_pct + 1:.1f}"
+            eat3 = f"{eat_pct + 1.5:.1f}"
+            rst1 = f"{reset_pct:.1f}"
+            rst2 = f"{reset_pct + 1.5:.1f}"
+            rst3 = f"{reset_pct + 2:.1f}"
+
+            cells.append(
+                f'<rect x="{x}" y="{y}" width="{CELL}" height="{CELL}" rx="2" fill="{color}">'
+                f'<animate attributeName="opacity" dur="{DUR}s" repeatCount="indefinite" '
+                f'keyTimes="0;{float(eat1)/100:.4f};{float(eat2)/100:.4f};{float(eat3)/100:.4f};{float(rst1)/100:.4f};{float(rst2)/100:.4f};{float(rst3)/100:.4f};1" '
+                f'values="1;1;0.8;0;0;0.5;1;1"/>'
+                f'<animate attributeName="rx" dur="{DUR}s" repeatCount="indefinite" '
+                f'keyTimes="0;{float(eat1)/100:.4f};{float(eat2)/100:.4f};{float(eat3)/100:.4f};{float(rst1)/100:.4f};{float(rst2)/100:.4f};{float(rst3)/100:.4f};1" '
+                f'values="2;2;6;6;6;4;2;2"/>'
+                f'</rect>'
+            )
 
     cells_svg = "\n    ".join(cells)
 
     # Day labels
-    day_labels = ["Mon", "", "Wed", "", "Fri", "", ""]
-    labels_svg = ""
-    for i, label in enumerate(day_labels):
-        if label:
-            ly = GRID_Y + i * CELL_TOTAL + CELL_SIZE - 1
-            labels_svg += (
-                f'<text x="{GRID_X - 5}" y="{ly}" '
-                f'font-family="\'Press Start 2P\',monospace" font-size="6" '
-                f'fill="#6B7280" text-anchor="end">{label}</text>\n    '
-            )
+    days = ["Mon", "", "Wed", "", "Fri", "", ""]
+    labels = "\n    ".join(
+        f'<text x="{GX-5}" y="{GY + i*STEP + CELL-1}" font-family="monospace" font-size="6" fill="#6B7280" text-anchor="end">{d}</text>'
+        for i, d in enumerate(days) if d
+    )
 
-    # Yoshi vertical position — centered on the grid
-    yoshi_y = GRID_Y + 2 * CELL_TOTAL - sprite_height // 2
+    # Yoshi vertical position
+    yy = GY + 2 * STEP - 16
 
-    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {svg_width} {svg_height}" width="{svg_width}" height="{svg_height}">
+    # Tongue: extends ~30px ahead of Yoshi to "grab" cells
+    tongue_dur = 0.6
+
+    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {sw} {sh}" width="{sw}" height="{sh}">
   <style>
-    @keyframes yoshi-run {{
-      0% {{ transform: translateX(-{sprite_width + 20}px); }}
-      5% {{ transform: translateX(0px); }}
-      80% {{ transform: translateX({grid_width}px); }}
-      85%,100% {{ transform: translateX({grid_width + 40}px); }}
-    }}
-    @keyframes eat {{
-      0% {{ transform: scale(1); opacity: 1; }}
-      70% {{ transform: scale(1); opacity: 1; }}
-      85% {{ transform: scale(1.4); opacity: 0.6; }}
-      100% {{ transform: scale(0); opacity: 0; }}
+    @keyframes yoshi-go {{
+      0% {{ transform: translateX(-60px); }}
+      {enter_end}% {{ transform: translateX(0px); }}
+      {traverse_end}% {{ transform: translateX({gw}px); }}
+      {exit_end}% {{ transform: translateX({gw + 80}px); }}
+      {exit_end + 0.1}% {{ transform: translateX(-60px); }}
+      100% {{ transform: translateX(-60px); }}
     }}
     @keyframes bob {{
       0%,100% {{ transform: translateY(0); }}
       50% {{ transform: translateY(-2px); }}
     }}
-    @keyframes legs {{
-      0%,40% {{ transform: translateY(0); }}
-      50%,90% {{ transform: translateY(1px); }}
+    @keyframes flutter {{
+      0%,100% {{ transform: rotate(0deg); }}
+      25% {{ transform: rotate(-3deg); }}
+      75% {{ transform: rotate(3deg); }}
     }}
-    .yoshi-wrap {{
-      animation: yoshi-run {ANIM_DURATION}s linear infinite;
+    @keyframes tongue-shoot {{
+      0%,60% {{ width: 0; }}
+      70% {{ width: 25px; }}
+      85% {{ width: 25px; }}
+      100% {{ width: 0; }}
     }}
-    .yoshi-bob {{
-      animation: bob 0.3s ease-in-out infinite;
+    @keyframes tongue-tip {{
+      0%,60% {{ r: 0; cx: 38px; }}
+      70% {{ r: 3px; cx: 63px; }}
+      85% {{ r: 3px; cx: 63px; }}
+      100% {{ r: 0; cx: 38px; }}
     }}
-    .cell {{
-      animation: eat {ANIM_DURATION}s ease-in-out infinite;
+    /* Reset sparkle on cells */
+    @keyframes sparkle {{
+      0%,{pause_end}% {{ opacity: 0; }}
+      {pause_end + 1}% {{ opacity: 1; }}
+      {reset_end - 2}% {{ opacity: 1; }}
+      {reset_end}%,100% {{ opacity: 0; }}
     }}
+    .yoshi {{ animation: yoshi-go {DUR}s linear infinite; }}
+    .yoshi-bob {{ animation: bob 0.3s ease-in-out infinite; }}
+    .yoshi-flutter {{ animation: flutter 0.2s ease-in-out infinite; }}
   </style>
 
-  <!-- Background -->
-  <rect width="{svg_width}" height="{svg_height}" fill="{BG_COLOR}" rx="6"/>
+  <rect width="{sw}" height="{sh}" fill="{BG}" rx="6"/>
 
   <!-- Title -->
-  <text x="{svg_width // 2}" y="{GRID_Y - 8}" font-family="'Press Start 2P',monospace" font-size="7" fill="#30A230" text-anchor="middle" opacity=".7">{total} contributions</text>
+  <text x="{sw//2}" y="{GY-8}" font-family="'Press Start 2P',monospace" font-size="7" fill="#30A230" text-anchor="middle" opacity=".7">{total} contributions</text>
 
   <!-- Day labels -->
-  {labels_svg}
+  {labels}
 
-  <!-- Contribution grid -->
-  <g>
-    {cells_svg}
+  <!-- Grid -->
+  <g>{cells_svg}</g>
+
+  <!-- Reset sparkle overlay -->
+  <g style="animation:sparkle {DUR}s linear infinite">
+    <text x="{GX + gw//4}" y="{GY + 3*STEP}" font-size="10" fill="#FFD700" opacity="0">
+      <animate attributeName="opacity" dur="{DUR}s" repeatCount="indefinite"
+        keyTimes="0;{pause_end/100:.2f};{(pause_end+2)/100:.2f};{(reset_end-2)/100:.2f};{reset_end/100:.2f};1"
+        values="0;0;0.8;0.8;0;0"/>
+      ✦ ✦ ✦
+    </text>
+    <text x="{GX + gw//2}" y="{GY + 5*STEP}" font-size="8" fill="#FFD700" opacity="0">
+      <animate attributeName="opacity" dur="{DUR}s" repeatCount="indefinite"
+        keyTimes="0;{(pause_end+1)/100:.2f};{(pause_end+3)/100:.2f};{(reset_end-3)/100:.2f};{(reset_end-1)/100:.2f};1"
+        values="0;0;0.6;0.6;0;0"/>
+      ✦ ✦
+    </text>
+    <text x="{GX + 3*gw//4}" y="{GY + 2*STEP}" font-size="10" fill="#FFD700" opacity="0">
+      <animate attributeName="opacity" dur="{DUR}s" repeatCount="indefinite"
+        keyTimes="0;{(pause_end+2)/100:.2f};{(pause_end+4)/100:.2f};{(reset_end-4)/100:.2f};{(reset_end-2)/100:.2f};1"
+        values="0;0;0.7;0.7;0;0"/>
+      ✦ ✦ ✦
+    </text>
   </g>
 
-  <!-- Mario riding Yoshi — animated -->
-  <g class="yoshi-wrap" transform="translate({GRID_X}, {yoshi_y})">
+  <!-- Yoshi -->
+  <g class="yoshi" transform="translate({GX},{yy})">
     <g class="yoshi-bob">
-      {sprite_svg}
+      <g class="yoshi-flutter">
+        <!-- Tongue -->
+        <rect x="38" y="20" width="0" height="4" fill="#E84030" rx="2">
+          <animate attributeName="width" dur="{tongue_dur}s" repeatCount="indefinite"
+            values="0;25;25;0" keyTimes="0;0.3;0.7;1"/>
+        </rect>
+        <circle cx="38" cy="22" r="0" fill="#E84030">
+          <animate attributeName="cx" dur="{tongue_dur}s" repeatCount="indefinite"
+            values="38;63;63;38" keyTimes="0;0.3;0.7;1"/>
+          <animate attributeName="r" dur="{tongue_dur}s" repeatCount="indefinite"
+            values="0;3;3;0" keyTimes="0;0.3;0.7;1"/>
+        </circle>
+        <!-- Sprite -->
+        {sprite}
+      </g>
     </g>
   </g>
 </svg>'''
-
     return svg
 
 
 def main():
     print(f"Fetching contributions for {USERNAME}...")
-    weeks, total = fetch_contributions()
-    print(f"Found {total} contributions across {len(weeks)} weeks")
-
-    svg = generate_svg(weeks, total)
-
+    weeks, total = fetch()
+    print(f"Found {total} contributions, {len(weeks)} weeks")
+    svg = generate(weeks, total)
     os.makedirs(os.path.dirname(OUTPUT) or ".", exist_ok=True)
     with open(OUTPUT, "w") as f:
         f.write(svg)
