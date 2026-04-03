@@ -1,119 +1,202 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200">
-  <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#050908" />
-      <stop offset="50%" style="stop-color:#0d1f17" />
-      <stop offset="100%" style="stop-color:#050908" />
-    </linearGradient>
-    <linearGradient id="seafoam" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#2DD4A8" />
-      <stop offset="50%" style="stop-color:#7FDBCA" />
-      <stop offset="100%" style="stop-color:#2DD4A8" />
-    </linearGradient>
-    <linearGradient id="warm" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#E8C547" />
-      <stop offset="100%" style="stop-color:#C4722A" />
-    </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="blur" />
-      <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-    </filter>
-    <filter id="softglow">
-      <feGaussianBlur stdDeviation="6" result="blur" />
-      <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
-    </filter>
-  </defs>
-
   <style>
-    @keyframes float1 { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-12px); } }
-    @keyframes float2 { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-8px); } }
-    @keyframes float3 { 0%,100% { transform: translateY(-5px); } 50% { transform: translateY(7px); } }
-    @keyframes pulse { 0%,100% { opacity: 0.3; } 50% { opacity: 1; } }
-    @keyframes pulse2 { 0%,100% { opacity: 0.15; } 50% { opacity: 0.7; } }
-    @keyframes dash { to { stroke-dashoffset: -1000; } }
+    @keyframes cloud-drift { 0% { transform: translateX(0); } 100% { transform: translateX(-800px); } }
+    @keyframes cloud-drift2 { 0% { transform: translateX(0); } 100% { transform: translateX(-800px); } }
+    @keyframes coin-spin { 0%,100% { transform: scaleX(1); } 25% { transform: scaleX(0.2); } 50% { transform: scaleX(1); } 75% { transform: scaleX(0.2); } }
+    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+    @keyframes block-bump { 0%,90%,100% { transform: translateY(0); } 95% { transform: translateY(-5px); } }
+    @keyframes sparkle { 0%,100% { opacity: 0; } 50% { opacity: 1; } }
     @keyframes blink { 0%,49% { opacity: 1; } 50%,100% { opacity: 0; } }
-    @keyframes scanline { 0% { transform: translateX(-200px); } 100% { transform: translateX(1000px); } }
+    @keyframes star-pulse { 0%,100% { opacity: 0.15; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.3); } }
 
-    .float1 { animation: float1 4s ease-in-out infinite; }
-    .float2 { animation: float2 3.5s ease-in-out infinite 0.5s; }
-    .float3 { animation: float3 5s ease-in-out infinite 1s; }
-    .pulse { animation: pulse 3s ease-in-out infinite; }
-    .pulse-slow { animation: pulse2 5s ease-in-out infinite; }
-    .dash { animation: dash 20s linear infinite; }
+    .cloud1 { animation: cloud-drift 60s linear infinite; }
+    .cloud2 { animation: cloud-drift2 45s linear infinite; }
+    .coin { animation: coin-spin 2s ease-in-out infinite; }
+    .coin-d1 { animation-delay: 0.5s; }
+    .coin-d2 { animation-delay: 1.0s; }
+    .coin-d3 { animation-delay: 1.5s; }
+    .float { animation: float 3s ease-in-out infinite; }
+    .float-d1 { animation-delay: 0.4s; }
+    .float-d2 { animation-delay: 0.8s; }
+    .block-b { animation: block-bump 6s ease-in-out infinite; }
+    .block-b1 { animation-delay: 2s; }
+    .block-b2 { animation-delay: 4s; }
+    .sparkle { animation: sparkle 1.5s ease-in-out infinite; }
+    .sp-d1 { animation-delay: 0.5s; }
+    .sp-d2 { animation-delay: 1s; }
     .blink { animation: blink 1s step-end infinite; }
-    .scanline { animation: scanline 4s linear infinite; }
+    .star-p { animation: star-pulse 3s ease-in-out infinite; }
+    .star-p1 { animation-delay: 1s; }
+    .star-p2 { animation-delay: 2s; }
   </style>
 
-  <!-- Background -->
-  <rect width="800" height="200" fill="url(#bg)" rx="12" />
+  <!-- Sky background -->
+  <rect width="800" height="200" fill="#0d1117" />
 
-  <!-- Animated grid lines -->
-  <g opacity="0.05">
-    <line x1="0" y1="50" x2="800" y2="50" stroke="#2DD4A8" stroke-width="0.5" />
-    <line x1="0" y1="100" x2="800" y2="100" stroke="#2DD4A8" stroke-width="0.5" />
-    <line x1="0" y1="150" x2="800" y2="150" stroke="#2DD4A8" stroke-width="0.5" />
-    <line x1="200" y1="0" x2="200" y2="200" stroke="#2DD4A8" stroke-width="0.5" />
-    <line x1="400" y1="0" x2="400" y2="200" stroke="#2DD4A8" stroke-width="0.5" />
-    <line x1="600" y1="0" x2="600" y2="200" stroke="#2DD4A8" stroke-width="0.5" />
+  <!-- Stars in sky -->
+  <circle class="star-p" cx="50" cy="20" r="1.5" fill="#ffffff" />
+  <circle class="star-p1" cx="180" cy="12" r="1" fill="#ffffff" />
+  <circle class="star-p2" cx="350" cy="8" r="1.5" fill="#ffffff" />
+  <circle class="star-p" cx="500" cy="18" r="1" fill="#ffffff" />
+  <circle class="star-p1" cx="620" cy="10" r="1.5" fill="#ffffff" />
+  <circle class="star-p2" cx="750" cy="22" r="1" fill="#ffffff" />
+  <circle class="star-p" cx="280" cy="25" r="0.8" fill="#ffffff" />
+  <circle class="star-p1" cx="700" cy="30" r="0.8" fill="#ffffff" />
+
+  <!-- Pixel clouds — layer 1 (slow, back) -->
+  <g class="cloud2" opacity="0.15">
+    <g>
+      <rect x="200" y="28" width="8" height="8" fill="#7FDBCA" />
+      <rect x="208" y="20" width="8" height="16" fill="#7FDBCA" />
+      <rect x="216" y="16" width="16" height="20" fill="#7FDBCA" />
+      <rect x="232" y="20" width="8" height="16" fill="#7FDBCA" />
+      <rect x="240" y="28" width="8" height="8" fill="#7FDBCA" />
+    </g>
+    <g>
+      <rect x="900" y="28" width="8" height="8" fill="#7FDBCA" />
+      <rect x="908" y="20" width="8" height="16" fill="#7FDBCA" />
+      <rect x="916" y="16" width="16" height="20" fill="#7FDBCA" />
+      <rect x="932" y="20" width="8" height="16" fill="#7FDBCA" />
+      <rect x="940" y="28" width="8" height="8" fill="#7FDBCA" />
+    </g>
   </g>
 
-  <!-- Scanning line effect -->
-  <rect class="scanline" x="-200" y="0" width="200" height="200" fill="url(#seafoam)" opacity="0.02" rx="12" />
-
-  <!-- Floating particles — seafoam -->
-  <circle class="float1 pulse" cx="80" cy="40" r="2" fill="#2DD4A8" filter="url(#glow)" />
-  <circle class="float2 pulse" cx="720" cy="55" r="1.5" fill="#2DD4A8" filter="url(#glow)" />
-  <circle class="float3 pulse" cx="150" cy="160" r="1.8" fill="#7FDBCA" filter="url(#glow)" />
-  <circle class="float1 pulse" cx="650" cy="150" r="2.2" fill="#2DD4A8" filter="url(#glow)" />
-
-  <!-- Floating particles — golden/amber (night market bokeh) -->
-  <circle class="float2 pulse" cx="350" cy="30" r="1.2" fill="#E8C547" filter="url(#glow)" />
-  <circle class="float3 pulse" cx="500" cy="170" r="1.5" fill="#C4722A" filter="url(#glow)" />
-  <circle class="float1 pulse" cx="250" cy="165" r="1.3" fill="#E8C547" filter="url(#glow)" />
-  <circle class="float2 pulse" cx="580" cy="35" r="1.1" fill="#C4722A" filter="url(#glow)" />
-
-  <!-- Floating particles — soft pink -->
-  <circle class="float3 pulse-slow" cx="50" cy="100" r="2.5" fill="#E8A0A0" opacity="0.3" filter="url(#softglow)" />
-  <circle class="float1 pulse-slow" cx="750" cy="100" r="2.5" fill="#E8A0A0" opacity="0.3" filter="url(#softglow)" />
-
-  <!-- Animated dashed orbit paths -->
-  <ellipse cx="130" cy="100" rx="55" ry="55" fill="none" stroke="#2DD4A8" stroke-width="0.4" stroke-dasharray="4 8" opacity="0.12" class="dash" />
-  <ellipse cx="670" cy="100" rx="45" ry="45" fill="none" stroke="#E8C547" stroke-width="0.4" stroke-dasharray="4 8" opacity="0.10" class="dash" />
-
-  <!-- Left bracket < -->
-  <g class="float2" filter="url(#glow)">
-    <text x="100" y="110" font-family="JetBrains Mono, monospace" font-size="36" fill="url(#seafoam)" text-anchor="middle" opacity="0.7">&lt;</text>
+  <!-- Pixel clouds — layer 2 (faster, front) -->
+  <g class="cloud1" opacity="0.1">
+    <g>
+      <rect x="550" y="38" width="10" height="10" fill="#ffffff" />
+      <rect x="560" y="28" width="10" height="20" fill="#ffffff" />
+      <rect x="570" y="24" width="20" height="24" fill="#ffffff" />
+      <rect x="590" y="28" width="10" height="20" fill="#ffffff" />
+      <rect x="600" y="38" width="10" height="10" fill="#ffffff" />
+    </g>
+    <g>
+      <rect x="1350" y="38" width="10" height="10" fill="#ffffff" />
+      <rect x="1360" y="28" width="10" height="20" fill="#ffffff" />
+      <rect x="1370" y="24" width="20" height="24" fill="#ffffff" />
+      <rect x="1390" y="28" width="10" height="20" fill="#ffffff" />
+      <rect x="1400" y="38" width="10" height="10" fill="#ffffff" />
+    </g>
   </g>
 
-  <!-- Right bracket /> -->
-  <g class="float1" filter="url(#glow)">
-    <text x="700" y="110" font-family="JetBrains Mono, monospace" font-size="36" fill="url(#seafoam)" text-anchor="middle" opacity="0.7">/&gt;</text>
+  <!-- Left pipe -->
+  <g>
+    <rect x="30" y="100" width="50" height="14" rx="2" fill="#2DD4A8" stroke="#1a9e7a" stroke-width="1.5" />
+    <rect x="35" y="114" width="40" height="66" fill="#2DD4A8" stroke="#1a9e7a" stroke-width="1.5" />
+    <rect x="40" y="102" width="7" height="10" fill="#7FDBCA" opacity="0.4" rx="1" />
+    <rect x="40" y="116" width="7" height="60" fill="#7FDBCA" opacity="0.25" rx="1" />
   </g>
 
-  <!-- Center content -->
-  <text x="400" y="85" font-family="Manrope, sans-serif" font-size="28" font-weight="700" fill="white" text-anchor="middle" letter-spacing="1">
-    Taylor Fradella
-  </text>
+  <!-- Right pipe -->
+  <g>
+    <rect x="720" y="100" width="50" height="14" rx="2" fill="#2DD4A8" stroke="#1a9e7a" stroke-width="1.5" />
+    <rect x="725" y="114" width="40" height="66" fill="#2DD4A8" stroke="#1a9e7a" stroke-width="1.5" />
+    <rect x="730" y="102" width="7" height="10" fill="#7FDBCA" opacity="0.4" rx="1" />
+    <rect x="730" y="116" width="7" height="60" fill="#7FDBCA" opacity="0.25" rx="1" />
+  </g>
 
-  <!-- Seafoam underline with glow -->
-  <line x1="300" y1="95" x2="500" y2="95" stroke="url(#seafoam)" stroke-width="2" opacity="0.6" filter="url(#glow)" />
+  <!-- Question block — left -->
+  <g class="block-b">
+    <rect x="120" y="55" width="28" height="28" rx="2" fill="#E8C547" stroke="#C4722A" stroke-width="1.5" />
+    <rect x="124" y="59" width="20" height="20" rx="1" fill="none" stroke="#C4722A" stroke-width="0.8" opacity="0.4" />
+    <text x="134" y="76" font-family="monospace" font-size="16" font-weight="bold" fill="#C4722A" text-anchor="middle">?</text>
+    <circle cx="126" cy="61" r="1.5" fill="#C4722A" opacity="0.5" />
+    <circle cx="142" cy="61" r="1.5" fill="#C4722A" opacity="0.5" />
+    <circle cx="126" cy="77" r="1.5" fill="#C4722A" opacity="0.5" />
+    <circle cx="142" cy="77" r="1.5" fill="#C4722A" opacity="0.5" />
+  </g>
 
-  <!-- Subtitle -->
-  <text x="400" y="125" font-family="JetBrains Mono, monospace" font-size="13" fill="#D1D5DB" text-anchor="middle" letter-spacing="2">
-    const passion = "design" + "engineering"
-  </text>
+  <!-- Question block — right -->
+  <g class="block-b block-b1">
+    <rect x="652" y="55" width="28" height="28" rx="2" fill="#E8C547" stroke="#C4722A" stroke-width="1.5" />
+    <rect x="656" y="59" width="20" height="20" rx="1" fill="none" stroke="#C4722A" stroke-width="0.8" opacity="0.4" />
+    <text x="666" y="76" font-family="monospace" font-size="16" font-weight="bold" fill="#C4722A" text-anchor="middle">?</text>
+    <circle cx="658" cy="61" r="1.5" fill="#C4722A" opacity="0.5" />
+    <circle cx="674" cy="61" r="1.5" fill="#C4722A" opacity="0.5" />
+    <circle cx="658" cy="77" r="1.5" fill="#C4722A" opacity="0.5" />
+    <circle cx="674" cy="77" r="1.5" fill="#C4722A" opacity="0.5" />
+  </g>
 
-  <!-- Blinking cursor — golden -->
-  <rect class="blink" x="548" y="113" width="8" height="15" fill="#E8C547" opacity="0.8" />
+  <!-- Brick blocks flanking question blocks -->
+  <rect x="92" y="55" width="28" height="28" rx="1" fill="#8B4513" stroke="#6B3410" stroke-width="1" opacity="0.6" />
+  <line x1="106" y1="55" x2="106" y2="83" stroke="#6B3410" stroke-width="0.5" opacity="0.4" />
+  <line x1="92" y1="69" x2="120" y2="69" stroke="#6B3410" stroke-width="0.5" opacity="0.4" />
+
+  <rect x="680" y="55" width="28" height="28" rx="1" fill="#8B4513" stroke="#6B3410" stroke-width="1" opacity="0.6" />
+  <line x1="694" y1="55" x2="694" y2="83" stroke="#6B3410" stroke-width="0.5" opacity="0.4" />
+  <line x1="680" y1="69" x2="708" y2="69" stroke="#6B3410" stroke-width="0.5" opacity="0.4" />
+
+  <!-- Floating coins -->
+  <g class="float" transform-origin="134 40">
+    <g class="coin" transform-origin="134 40">
+      <ellipse cx="134" cy="40" rx="7" ry="7" fill="#E8C547" stroke="#C4722A" stroke-width="1" />
+      <text x="134" y="44" font-family="monospace" font-size="8" font-weight="bold" fill="#C4722A" text-anchor="middle">$</text>
+    </g>
+  </g>
+  <g class="float float-d1" transform-origin="666 40">
+    <g class="coin coin-d1" transform-origin="666 40">
+      <ellipse cx="666" cy="40" rx="7" ry="7" fill="#E8C547" stroke="#C4722A" stroke-width="1" />
+      <text x="666" y="44" font-family="monospace" font-size="8" font-weight="bold" fill="#C4722A" text-anchor="middle">$</text>
+    </g>
+  </g>
+
+  <!-- Sparkles -->
+  <text class="sparkle" x="155" y="50" font-size="7" fill="#E8C547">✦</text>
+  <text class="sparkle sp-d1" x="645" y="45" font-size="7" fill="#E8C547">✦</text>
+
+  <!-- === CENTER CONTENT === -->
+
+  <!-- Name -->
+  <text x="400" y="85" font-family="'Press Start 2P', 'Courier New', monospace" font-size="22" fill="#ffffff" text-anchor="middle" letter-spacing="2">Taylor Fradella</text>
+
+  <!-- Code subtitle -->
+  <text x="400" y="115" font-family="JetBrains Mono, monospace" font-size="11" fill="#D1D5DB" text-anchor="middle" letter-spacing="1">const passion = "design" + "engineering"</text>
+  <rect class="blink" x="519" y="104" width="7" height="12" fill="#E8C547" opacity="0.8" />
 
   <!-- Bottom subtitle -->
-  <text x="400" y="160" font-family="JetBrains Mono, monospace" font-size="10" fill="#6B7280" text-anchor="middle" letter-spacing="1">
-    frontend · full-stack · mobile · accessible
-  </text>
+  <text x="400" y="140" font-family="JetBrains Mono, monospace" font-size="9" fill="#6B7280" text-anchor="middle" letter-spacing="1">frontend · full-stack · mobile · accessible</text>
 
-  <!-- Corner decorations — seafoam -->
-  <path d="M 20 30 L 20 15 L 35 15" fill="none" stroke="#2DD4A8" stroke-width="1.5" opacity="0.3" class="pulse" />
-  <path d="M 780 30 L 780 15 L 765 15" fill="none" stroke="#2DD4A8" stroke-width="1.5" opacity="0.3" class="pulse" />
-  <path d="M 20 170 L 20 185 L 35 185" fill="none" stroke="#E8C547" stroke-width="1.5" opacity="0.2" class="pulse" />
-  <path d="M 780 170 L 780 185 L 765 185" fill="none" stroke="#E8C547" stroke-width="1.5" opacity="0.2" class="pulse" />
+  <!-- Ground blocks -->
+  <g fill="#8B4513" opacity="0.8">
+    <rect x="0" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
+    <rect x="20" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
+    <rect x="40" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
+    <rect x="60" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
+    <rect x="80" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
+    <rect x="100" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
+    <rect x="120" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
+    <rect x="140" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
+    <rect x="160" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
+    <rect x="180" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
+    <rect x="200" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
+    <rect x="220" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
+    <rect x="240" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
+    <rect x="260" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
+    <rect x="280" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
+    <rect x="300" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
+    <rect x="320" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
+    <rect x="340" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
+    <rect x="360" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
+    <rect x="380" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
+    <rect x="400" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
+    <rect x="420" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
+    <rect x="440" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
+    <rect x="460" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
+    <rect x="480" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
+    <rect x="500" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
+    <rect x="520" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
+    <rect x="540" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
+    <rect x="560" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
+    <rect x="580" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
+    <rect x="600" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
+    <rect x="620" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
+    <rect x="640" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
+    <rect x="660" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
+    <rect x="680" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
+    <rect x="700" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
+    <rect x="720" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
+    <rect x="740" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
+    <rect x="760" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
+    <rect x="780" y="180" width="20" height="20" stroke="#6B3410" stroke-width="0.8" />
+  </g>
 </svg>
