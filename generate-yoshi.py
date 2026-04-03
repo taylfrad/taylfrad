@@ -38,12 +38,12 @@ def level(n):
     return 0 if n == 0 else 1 if n <= 3 else 2 if n <= 6 else 3 if n <= 9 else 4
 
 
-YOSHI_B64 = "iVBORw0KGgoAAAANSUhEUgAAAFUAAABgCAYAAABsQj5EAAAEW0lEQVR42u1dPWgUQRh9azZGBCV3ihoscoWCVWxyKBaipLEwCrlSLEKakMoUdkkV+6RJSJ8qxSG5KhZBsDJsIJDCOodCRMKdhRyEENbijPvlbuZ253b2bmb3e3Awu9xudi/zvXnfz8w4vu/7AFCv1wEAuVwOph6b/Gz0+BIY2uHa0EPPj215Vu6pCcBJA6c6jiN8uX+vxpzKnGoIp8rQr2d1reUtYvKP/OB8dT5o5/P5NiroSU+1RfuJOFUFvdS5zKlJWFGtVvNt4NSFhQWsra2FmvzRst93juWemmVOPTk5ifWiveRUa0f/KCZPFUKtVmOd2no8NDQU60V7GTtgTs2C708FeydEEfOt5h8WK6Cg32edyjo1esQpbk/1fV/JGuj3rfT9JyYmsL+/DwA4fCX+zuIBsHGodl/6w8tiBVH+Ia20YIVOHRgYsMa0o6gI5tS06tSzszPlB3+MwDy/QmzPI/NqJn/hPr74b0XxzLinptX3TxunGjH6e56nLP5lZk4xutw9pew64SpCJuuM8/1tAnNq1ji1XC6jWq0CAN4Ugof73gC+/Gq2L98F3Bvil7j2RP8Pc2s2aH/EuvD85uYmAKDRaGB6ejrwCk0IqBSLRezt7bV5VNtHwKzXbF9/Dlx92D1fJgHKuzQAY61ONVkVMKeyToX2VIwuGqGeFvdU9v3t4FQjPKqdnR3lILUqaLDEWdHjgVmT97cVzKlZy/tTvBgB1osI0imfzRL/rFOzXEuVBk5109xjLoz4mlQFdRys5FT2/Rn211LR7Kgsm6o6IePOO7G6oCb/cwWh87S4p2ZNp9qaozK6lqpT5F/VtGWZT1mmlJo5QkosOZ7KtVRcn4ok61MLq8DtOTWRf172mMvllMV/nPpU7qns+6vzXz/msrqqo6isqli1BopeS/P+FFfuAcMvm+3WkV9m8tRs406MSFynho2EcXqRzhyVCasCMacm7ftHnbUhMrsZUs+0eFN87eiW+FrP8zA+Pt52Pj8F3C832++xihLmlGah8LpUafb9bYcJnOpGCa3tKgbNl47F5xdfq93oGaZQRtl+nYoUVYowp2bB95ctPyQLp3XjW4vEfzdLHclmS6usIMQ61VbfP0ucKosV9J1Tfd9X+jiO8/9D/X56vlQq9UyG6Ryo3TRXirDvn4W8f5Skma5SmspTYGy42S5U1K+nEX5ekzpreX/bRnyTshdumDiv1+vK+XM6GxkRZstRyPL+S2PA2wKMWiktdo6KfX/mVPPz/lHiALogW0KpE6hiiLPyGevUNOT9mVP7sH7qTIyFDLYOgOM/7aZMp/x0Mnlr61PZ92dONZ9TaS49iRHf8zwUHrTn/bePopm5ab6/m4bycd46ic2//ZjGBLpZ7UyEDzPiIX5ychKVSoW3o2NomPKTJAYHB63cjk6b+P/0jXuotvL0c/z4rf/hTk9PeYtPBnOqmZzay6pl8NR03jaZwVt88rbJ4LIf5lQtx38ByTZDpkYGyQQAAAAASUVORK5CYII="
+YOSHI_B64 = "iVBORw0KGgoAAAANSUhEUgAAACgAAAAtCAYAAADcMyneAAACRElEQVR4nO1ZvUoDQRCekSA+gIWCmHRnnRQnWqUUJIIgPoA+gGJtJdiJvoCFjYVW5g1sRIsUgoUphFMERbQwCIIWI3t7P7t7t5eNudUk+sHlZnbndr/MzM7eJgD/6A4IdkHdzjUE9oiRSwBja/xSyP46wZ4GucSvsbXvec02iBFLITeYIcacxiGDcUloN7HP7ugA5NVipVTPHNcnxla3iAvZWtIKYAFL5PgUjrEZTTa77dDbYlOyO4Jr//5+DbAMU758yW92Cd6BTITh5qkJRUdum4SgwQEY+ckcdAPtdj1uK+7qH2YhJuIPIaLEK9ccLNX5rpFFxgRCTmLPl5mh35j0Vgh9O+SxSLBUN9slzgMz3OMxNEmFvxVirwbwuJfniJbqoC68QQnpKD9zJTh/KusH0JD0RiPWp+cqMDzB5fENgIcdLr8ccrtWqwXVajVfglevsu5AWdLL5Vj/fAL4uI/7Qpm1VyqVyNUFG4U6DSy84W7BwOQw5EreotWtziVt3jFBV46wb8tMwfComPbNE31heKOCrGz834mYloCYIyszAJujcV/xJO4jwY6FNySnIdgx+ivELiVevyNsPcfy5kK60bmFU6Y6E4kvjspLpGqYsEsM/udCrEOah0SvorBgbINEhD8CZV1eLbO/a+gO2FL5YPK0YhouJk85E3dwRh6MHEQTD7aDJ3hNRB4eNCLIdhId9s+SRANiWXMMdplB/wPRaBWS4GnFc9FYeRMUB29LcnXWyvtl/4QY2/RTj/2t8Y/Bwxfj/dtkNWGQuwAAAABJRU5ErkJggg=="
 
 
 def yoshi_sprite():
     """SMW Yoshi facing right — embedded PNG sprite for pixel-perfect accuracy."""
-    return f'<image width="78" height="87" style="image-rendering:pixelated" href="data:image/png;base64,{YOSHI_B64}" />'
+    return f'<image width="40" height="45" style="image-rendering:pixelated" href="data:image/png;base64,{YOSHI_B64}" />'
 
 
 def generate(weeks, total):
@@ -52,7 +52,7 @@ def generate(weeks, total):
     sw = gw + GX + 20
     sh = NUM_ROWS * STEP + GY + 50
     sprite = yoshi_sprite()
-    sprite_w, sprite_h = 26*3, 29*3
+    sprite_w, sprite_h = 40, 45
 
     # Animation phase percentages
     traverse_pct = 75   # 0-75%: zigzag traverse (eating)
@@ -137,7 +137,7 @@ def generate(weeks, total):
 
     days = ["Mon", "", "Wed", "", "Fri", "", ""]
     labels = "\n    ".join(
-        f'<text x="{GX-5}" y="{GY + i*STEP + CELL-1}" font-family="monospace" font-size="6" fill="#6B7280" text-anchor="end">{d}</text>'
+        f'<text x="{GX-5}" y="{GY + i*STEP + CELL-1}" font-family="monospace" font-size="9" fill="#8B9AB0" text-anchor="end">{d}</text>'
         for i, d in enumerate(days) if d
     )
 
@@ -165,10 +165,10 @@ def generate(weeks, total):
     .tongue-wrap {{ animation: tongue-visible {DUR}s linear infinite; }}
   </style>
 
-  <rect width="{sw}" height="{sh}" fill="{BG}" rx="6"/>
+  <rect width="{sw}" height="{sh}" fill="{BG}"/>
 
   <!-- Title -->
-  <text x="{sw//2}" y="{GY-8}" font-family="'Press Start 2P',monospace" font-size="7" fill="#30A230" text-anchor="middle" opacity=".7">{total} contributions</text>
+  <text x="{sw//2}" y="{GY-8}" font-family="'Press Start 2P',monospace" font-size="11" fill="#30A230" text-anchor="middle" opacity=".8">{total} contributions</text>
 
   {labels}
 
