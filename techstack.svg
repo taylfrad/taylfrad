@@ -35,7 +35,7 @@
     .c0{animation:cs 2s ease-in-out infinite .2s}.c1{animation:cs 2s ease-in-out infinite .6s}.c2{animation:cs 2s ease-in-out infinite 1s}.c3{animation:cs 2s ease-in-out infinite 1.4s}.c4{animation:cs 2s ease-in-out infinite 1.8s}
     .f0{animation:fl 2.5s ease-in-out infinite .1s}.f1{animation:fl 2.5s ease-in-out infinite .5s}.f2{animation:fl 2.5s ease-in-out infinite .9s}.f3{animation:fl 2.5s ease-in-out infinite 1.3s}.f4{animation:fl 2.5s ease-in-out infinite 1.7s}
   </style>
-  <rect width="800" height="70" fill="#0d1117"/>
+  <rect width="800" height="70" fill="#050c21"/>
 
   <!-- Block positions: 6 blocks evenly spaced, centered -->
   <!-- x centers: 82, 192, 302, 412, 522, 632 (110px spacing) -->
