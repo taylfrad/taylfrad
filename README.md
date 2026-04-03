@@ -1,6 +1,6 @@
 <table width="100%" cellspacing="0" cellpadding="0" border="0" style="border-collapse:collapse;border-style:hidden"><tr><td bgcolor="#050c21" style="line-height:0;font-size:0;padding:0" align="center"><img src="./banner.svg" width="100%" /><!--
 --><a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Press+Start+2P&size=12&duration=3000&pause=1000&color=30A230&background=050C21&center=true&vCenter=true&repeat=true&width=700&height=40&lines=Building+beautiful%2C+accessible+software" width="100%" /></a><!--
---><img src="https://user-images.githubusercontent.com/74038190/225813708-98b745f2-7d22-48cf-9150-083f1b00d6c9.gif" width="100%" /><!--
+--><img src="./room.gif" width="100%" /><!--
 --><img src="./game-scene.svg" width="100%" /><!--
 --><img src="https://raw.githubusercontent.com/taylfrad/taylfrad/output/yoshi-contrib.svg" width="100%" /></td></tr></table>
 

@@ -141,8 +141,7 @@ def generate(weeks, total):
         for i, d in enumerate(days) if d
     )
 
-    bleed = 6
-    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -{bleed} {sw} {sh + bleed * 2}" width="{sw}" height="{sh + bleed * 2}">
+    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {sw} {sh}" width="{sw}" height="{sh}">
   <style>
     {yoshi_kf}
     @keyframes bob {{
@@ -166,7 +165,7 @@ def generate(weeks, total):
     .tongue-wrap {{ animation: tongue-visible {DUR}s linear infinite; }}
   </style>
 
-  <rect x="0" y="-{bleed}" width="{sw}" height="{sh + bleed * 2}" fill="{BG}"/>
+  <rect width="{sw}" height="{sh}" fill="{BG}"/>
 
   <!-- Title -->
   <text x="{sw//2}" y="{GY-8}" font-family="'Press Start 2P',monospace" font-size="11" fill="#30A230" text-anchor="middle" opacity=".8">{total} contributions</text>
@@ -188,13 +187,13 @@ def generate(weeks, total):
     <g class="yoshi-bob">
       <!-- Tongue — only visible during traverse (eating) phase -->
       <g class="tongue-wrap">
-        <rect x="19" y="25" width="0" height="3" fill="#E84030" rx="1">
+        <rect x="32" y="13" width="0" height="3" fill="#E84030" rx="1">
           <animate attributeName="width" dur="{tongue_dur}s" repeatCount="indefinite"
-            values="0;22;22;0" keyTimes="0;0.3;0.7;1"/>
+            values="0;20;20;0" keyTimes="0;0.3;0.7;1"/>
         </rect>
-        <circle cx="19" cy="26" r="0" fill="#E84030">
+        <circle cx="32" cy="14" r="0" fill="#E84030">
           <animate attributeName="cx" dur="{tongue_dur}s" repeatCount="indefinite"
-            values="19;41;41;19" keyTimes="0;0.3;0.7;1"/>
+            values="32;52;52;32" keyTimes="0;0.3;0.7;1"/>
           <animate attributeName="r" dur="{tongue_dur}s" repeatCount="indefinite"
             values="0;2;2;0" keyTimes="0;0.3;0.7;1"/>
         </circle>
