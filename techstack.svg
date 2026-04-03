@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 90" width="820" height="90">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#050908" />
+      <stop offset="50%" style="stop-color:#0d1f17" />
+      <stop offset="100%" style="stop-color:#050908" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    @keyframes pulse1 { 0%,100% { opacity: 0.7; transform: scale(1); } 50% { opacity: 1; transform: scale(1.08); } }
+    @keyframes pulse2 { 0%,100% { opacity: 0.7; transform: scale(1); } 50% { opacity: 1; transform: scale(1.08); } }
+    @keyframes pulse3 { 0%,100% { opacity: 0.7; transform: scale(1); } 50% { opacity: 1; transform: scale(1.08); } }
+    @keyframes pulse4 { 0%,100% { opacity: 0.7; transform: scale(1); } 50% { opacity: 1; transform: scale(1.08); } }
+    @keyframes pulse5 { 0%,100% { opacity: 0.7; transform: scale(1); } 50% { opacity: 1; transform: scale(1.08); } }
+    @keyframes pulse6 { 0%,100% { opacity: 0.7; transform: scale(1); } 50% { opacity: 1; transform: scale(1.08); } }
+    @keyframes underline { 0%,100% { opacity: 0.2; } 50% { opacity: 0.8; } }
+
+    .t1 { animation: pulse1 3s ease-in-out infinite 0s; transform-origin: 100px 45px; }
+    .t2 { animation: pulse2 3s ease-in-out infinite 0.4s; transform-origin: 237px 45px; }
+    .t3 { animation: pulse3 3s ease-in-out infinite 0.8s; transform-origin: 373px 45px; }
+    .t4 { animation: pulse4 3s ease-in-out infinite 1.2s; transform-origin: 510px 45px; }
+    .t5 { animation: pulse5 3s ease-in-out infinite 1.6s; transform-origin: 647px 45px; }
+    .t6 { animation: pulse6 3s ease-in-out infinite 2.0s; transform-origin: 750px 45px; }
+    .uline { animation: underline 3s ease-in-out infinite; }
+  </style>
+
+  <rect width="820" height="90" fill="url(#bg)" rx="10" />
+
+  <!-- React -->
+  <g class="t1" filter="url(#glow)">
+    <text x="100" y="42" font-family="Manrope, sans-serif" font-size="16" font-weight="700" fill="#61DAFB" text-anchor="middle">React</text>
+    <line class="uline" x1="72" y1="50" x2="128" y2="50" stroke="#61DAFB" stroke-width="2" opacity="0.4" />
+    <text x="100" y="68" font-family="JetBrains Mono, monospace" font-size="9" fill="#6B7280" text-anchor="middle">+ Native</text>
+  </g>
+
+  <!-- Next.js -->
+  <g class="t2" filter="url(#glow)">
+    <text x="237" y="42" font-family="Manrope, sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">Next.js</text>
+    <line class="uline" x1="205" y1="50" x2="269" y2="50" stroke="#ffffff" stroke-width="2" opacity="0.4" />
+    <text x="237" y="68" font-family="JetBrains Mono, monospace" font-size="9" fill="#6B7280" text-anchor="middle">14</text>
+  </g>
+
+  <!-- TypeScript -->
+  <g class="t3" filter="url(#glow)">
+    <text x="373" y="42" font-family="Manrope, sans-serif" font-size="16" font-weight="700" fill="#3178C6" text-anchor="middle">TypeScript</text>
+    <line class="uline" x1="330" y1="50" x2="416" y2="50" stroke="#3178C6" stroke-width="2" opacity="0.4" />
+  </g>
+
+  <!-- Tailwind -->
+  <g class="t4" filter="url(#glow)">
+    <text x="510" y="42" font-family="Manrope, sans-serif" font-size="16" font-weight="700" fill="#06B6D4" text-anchor="middle">Tailwind</text>
+    <line class="uline" x1="472" y1="50" x2="548" y2="50" stroke="#06B6D4" stroke-width="2" opacity="0.4" />
+  </g>
+
+  <!-- Three.js -->
+  <g class="t5" filter="url(#glow)">
+    <text x="640" y="42" font-family="Manrope, sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">Three.js</text>
+    <line class="uline" x1="604" y1="50" x2="676" y2="50" stroke="#ffffff" stroke-width="2" opacity="0.4" />
+  </g>
+
+  <!-- Azure -->
+  <g class="t6" filter="url(#glow)">
+    <text x="750" y="42" font-family="Manrope, sans-serif" font-size="16" font-weight="700" fill="#0078D4" text-anchor="middle">Azure</text>
+    <line class="uline" x1="722" y1="50" x2="778" y2="50" stroke="#0078D4" stroke-width="2" opacity="0.4" />
+  </g>
+
+  <!-- Separator dots -->
+  <circle cx="168" cy="40" r="2" fill="#F97066" opacity="0.4" />
+  <circle cx="305" cy="40" r="2" fill="#F97066" opacity="0.4" />
+  <circle cx="441" cy="40" r="2" fill="#F97066" opacity="0.4" />
+  <circle cx="575" cy="40" r="2" fill="#F97066" opacity="0.4" />
+  <circle cx="695" cy="40" r="2" fill="#F97066" opacity="0.4" />
+</svg>
