@@ -7,7 +7,7 @@
 <picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/taylfrad/taylfrad/output/github-snake-dark.svg" /><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/taylfrad/taylfrad/output/github-snake.svg" /><img alt="contribution animation" src="https://raw.githubusercontent.com/taylfrad/taylfrad/output/github-snake-dark.svg" width="100%" /></picture>
 <img src="./mario-links.svg" width="100%" />
 
-[![🍄 Portfolio](https://img.shields.io/badge/🍄_taylorfradella.com-0d1117?style=for-the-badge)](https://taylorfradella.com)&nbsp;
-[![⭐ LinkedIn](https://img.shields.io/badge/⭐_LinkedIn-0d1117?style=for-the-badge)](https://linkedin.com/in/taylorfradella)&nbsp;
-[![🔥 Email](https://img.shields.io/badge/🔥_Email-0d1117?style=for-the-badge)](mailto:taylor.fradella@selu.edu)
+[![🍄 Portfolio](https://img.shields.io/badge/🍄_taylorfradella.com-050c21?style=for-the-badge)](https://taylorfradella.com)&nbsp;
+[![⭐ LinkedIn](https://img.shields.io/badge/⭐_LinkedIn-050c21?style=for-the-badge)](https://linkedin.com/in/taylorfradella)&nbsp;
+[![🔥 Email](https://img.shields.io/badge/🔥_Email-050c21?style=for-the-badge)](mailto:taylor.fradella@selu.edu)
 </div>
