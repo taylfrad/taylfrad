@@ -118,7 +118,7 @@
     .lb{animation:legB .15s step-end infinite}
     .gw{animation:goomba-walk 3s ease-in-out infinite}
   </style>
-  <rect width="800" height="80" fill="#050c21"/>
+  <rect width="800" height="80" fill="#0d1117"/>
 
   <!-- GROUND -->
   <rect x="0" y="60" width="800" height="2" fill="#000"/>
