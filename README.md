@@ -2,7 +2,7 @@
 <tr><td align="center" bgcolor="#050c21">
 <img src="./banner.svg" width="100%" />
 <br>
-<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Press+Start+2P&size=12&duration=3000&pause=1000&color=30A230&center=true&vCenter=true&repeat=true&width=700&height=40&lines=Building+beautiful%2C+accessible+software" /></a>
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Press+Start+2P&size=12&duration=3000&pause=1000&color=30A230&background=050C21&center=true&vCenter=true&repeat=true&width=700&height=40&lines=Building+beautiful%2C+accessible+software" /></a>
 <br>
 <img src="https://user-images.githubusercontent.com/74038190/225813708-98b745f2-7d22-48cf-9150-083f1b00d6c9.gif" width="100%" />
 <br>
