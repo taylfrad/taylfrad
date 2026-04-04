@@ -183,15 +183,15 @@ def generate(weeks, total):
   </g>
 
   <!-- Yoshi -->
-  <g class="yoshi" transform="translate({GX},{GY - 6})" style="transform-origin:{GX + sprite_w//2}px {GY + sprite_h//2}px">
+  <g class="yoshi" transform="translate({GX},{GY + STEP - 6})" style="transform-origin:{GX + sprite_w//2}px {GY + STEP + sprite_h//2}px">
     <g class="yoshi-bob">
       <!-- Tongue — only visible during traverse (eating) phase -->
       <g class="tongue-wrap">
-        <rect x="32" y="13" width="0" height="3" fill="#E84030" rx="1">
+        <rect x="32" y="16" width="0" height="3" fill="#E84030" rx="1">
           <animate attributeName="width" dur="{tongue_dur}s" repeatCount="indefinite"
             values="0;20;20;0" keyTimes="0;0.3;0.7;1"/>
         </rect>
-        <circle cx="32" cy="14" r="0" fill="#E84030">
+        <circle cx="32" cy="17" r="0" fill="#E84030">
           <animate attributeName="cx" dur="{tongue_dur}s" repeatCount="indefinite"
             values="32;52;52;32" keyTimes="0;0.3;0.7;1"/>
           <animate attributeName="r" dur="{tongue_dur}s" repeatCount="indefinite"
