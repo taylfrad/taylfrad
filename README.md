@@ -5,5 +5,5 @@
 --><img src="https://raw.githubusercontent.com/taylfrad/taylfrad/output/yoshi-contrib.svg" width="100%" /></td></tr></table>
 
 <p align="center">
-  <a href="https://linkedin.com/in/taylorfradella"><img src="https://img.shields.io/badge/⭐_LinkedIn-0d1117?style=for-the-badge" height="36" /></a>&nbsp;&nbsp;<a href="https://taylorfradella.com"><img src="https://img.shields.io/badge/🍄_taylorfradella.com-0d1117?style=for-the-badge" height="36" /></a>&nbsp;&nbsp;<a href="mailto:taylor.fradella@selu.edu"><img src="https://img.shields.io/badge/🔥_Email-0d1117?style=for-the-badge" height="36" /></a>
+  <a href="https://linkedin.com/in/taylorfradella"><img src="https://img.shields.io/badge/⭐_LinkedIn-0d1117?style=for-the-badge" height="36" /></a>&nbsp;&nbsp;<a href="https://taylorfradella.com"><img src="https://img.shields.io/badge/🍄_taylorfradella.com-0d1117?style=for-the-badge" height="36" /></a>&nbsp;&nbsp;<a href="mailto:taylor.fradella.dev@gmail.com"><img src="https://img.shields.io/badge/🔥_Email-0d1117?style=for-the-badge" height="36" /></a>
 </p>
